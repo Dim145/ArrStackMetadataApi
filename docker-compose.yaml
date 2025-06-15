@@ -1,0 +1,12 @@
+services:
+  metadata-server-dev:
+    image: dim145/metadata-server:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: metadata-server-dev
+    ports:
+      - "8080:80"
+    environment:
+      TVDB_API_KEY: "xxx"
+      METADATA_SERVER_FOR: "sonarr"
