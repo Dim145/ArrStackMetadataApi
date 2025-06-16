@@ -1,5 +1,7 @@
 from fastapi import APIRouter
 
+from models.skyhook.tvdb.show import Show
+
 showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 
 @showsRouter.get("/{tvdb_id}")
@@ -8,7 +10,9 @@ async def get_shows(tvdb_id: int):
 
     tv = TVDB_API.get_series_extended(tvdb_id)
 
+    show = Show.from_dict(tv)
+
     return {
         "message": f"tvdb_id: {tvdb_id}",
-        "data": tv
+        "data": show
     }
