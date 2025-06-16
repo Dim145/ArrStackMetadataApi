@@ -6,6 +6,8 @@ MUSICBRAINZ_API_KEY = os.getenv("MUSICBRAINZ_API_KEY")
 
 METADATA_SERVER_FOR = os.getenv("METADATA_SERVER_FOR")
 
+TVDB_RESULT_LANG = os.getenv("TVDB_RESULT_LANG", "eng").lower()
+
 # enum with values "sonarr", "radarr", "lidarr", "readarr"
 METADATA_SERVER_FOR = METADATA_SERVER_FOR.lower() if METADATA_SERVER_FOR else None
 if METADATA_SERVER_FOR not in ["sonarr", "radarr", "lidarr", "readarr"]:

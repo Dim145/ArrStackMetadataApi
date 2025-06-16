@@ -3,6 +3,10 @@ from typing import Any
 from dataclasses import dataclass
 import json
 
+from env import TVDB_RESULT_LANG
+
+CONTENT_RATING_ORDER = ['fra', 'usa']
+
 @dataclass
 class TimeOfDay:
     hours: int
@@ -13,6 +17,12 @@ class TimeOfDay:
         _hours = int(obj.get("hours"))
         _minutes = int(obj.get("minutes"))
         return TimeOfDay(_hours, _minutes)
+
+    @staticmethod
+    def from_string(time_str: str) -> 'TimeOfDay':
+        """Convert a time string in HH:MM format to a TimeOfDay instance."""
+        hours, minutes = map(int, time_str.split(':'))
+        return TimeOfDay(hours, minutes)
 
 
 @dataclass
@@ -126,7 +136,7 @@ class Show:
     episodes: List[Episode]
 
     @staticmethod
-    def from_dict(obj: Any) -> 'Root':
+    def from_dict(obj: Any) -> 'Show':
         _tvdbId = int(obj.get("tvdbId"))
         _title = str(obj.get("title"))
         _overview = str(obj.get("overview"))
@@ -156,6 +166,112 @@ class Show:
         _seasons = [Season.from_dict(y) for y in obj.get("seasons")]
         _episodes = [Episode.from_dict(y) for y in obj.get("episodes")]
         return Show(_tvdbId, _title, _overview, _slug, _originalCountry, _originalLanguage, _language, _firstAired, _lastAired, _tvRageId, _tvMazeId, _tmdbId, _imdbId, _malIds, _aniListIds, _lastUpdated, _status, _runtime, _timeOfDay, _originalNetwork, _network, _genres, _contentRating, _rating, _actors, _images, _seasons, _episodes)
+
+    @staticmethod
+    def from_tvdb_obj(tvdb_obj: dict) -> 'Show':
+
+        # Extract the name from translations if available
+        translations = tvdb_obj.get('translations', {})
+        name_translations = translations.get('name_translations', [])
+
+        name = ""
+
+        for translation in name_translations:
+            if translation.get('language') == TVDB_RESULT_LANG and not translation.get('isAlias', False):
+                name = translation.get('name')
+                break
+
+        if name == "":
+            name = tvdb_obj.get('name')
+
+        # Extract overview from translations if available
+        overview_translations = translations.get('overview_translations', [])
+
+        overview = ""
+
+        for translation in overview_translations:
+            if translation.get('language') == TVDB_RESULT_LANG:
+                overview = translation.get('overview')
+                break
+
+        if overview == "":
+            overview = tvdb_obj.get('overview', "")
+
+        # get tvmaze id from remote_ids
+        tvmaze_id = None
+        remote_ids = tvdb_obj.get('remote_ids', [])
+
+        if isinstance(remote_ids, list):
+            tvmaze_id = next((item.get('id') for item in remote_ids if item.get('type') == 19), None)
+
+        # get tmdb id from remote_ids
+        tmdb_id = None
+
+        if isinstance(remote_ids, list):
+            tmdb_id = next((item.get('id') for item in remote_ids if item.get('type') == 12), None)
+
+        # get imdb id from remote_ids
+        imdb_id = None
+
+        if isinstance(remote_ids, list):
+            imdb_id = next((item.get('id') for item in remote_ids if item.get('type') == 2), None)
+
+        # get my animelist id from remote_ids
+        # todo: implement my animelist id extraction
+        mal_ids = []
+
+        # get aniList id from remote_ids
+        # todo: implement aniList id extraction
+        ani_list_ids = []
+
+        # get original network name
+        original_network = tvdb_obj.get('originalNetwork', {}).get('name', 'Unknown')
+
+        # get network name
+        network = tvdb_obj.get('latestNetwork', {}).get('name', 'Unknown')
+
+        # get genres name from genres list
+        genres = [genre.get('name') for genre in tvdb_obj.get('genres', [])]
+
+        # get content rating from contentRatings (fra or usa)
+        content_ratings = tvdb_obj.get('contentRatings', [])
+        content_rating = "Unknown"
+
+        for rating in CONTENT_RATING_ORDER:
+            for content_rating_obj in content_ratings:
+                if content_rating_obj.get('country') == rating:
+                    content_rating = content_rating_obj.get('name', 'Unknown')
+                    break
+            if content_rating != "Unknown":
+                break
+
+
+        return Show(
+            tvdb_obj.get('id'),
+            name,
+            overview,
+            tvdb_obj.get('slug'),
+            tvdb_obj.get('originalCountry'),
+            tvdb_obj.get('originalLanguage'),
+            TVDB_RESULT_LANG,
+            tvdb_obj.get('firstAired'),
+            tvdb_obj.get('lastAired'),
+            "TVRAGE_JSP",
+            tvmaze_id,
+            tmdb_id,
+            imdb_id,
+            mal_ids,
+            ani_list_ids,
+            tvdb_obj.get('lastUpdated'),
+            tvdb_obj.get('status', {}).get('name', 'Unknown'),
+            tvdb_obj.get('averageRuntime', 0),
+            TimeOfDay.from_string(tvdb_obj.get('timeOfDay')),
+            original_network,
+            network,
+            genres,
+            content_rating,
+            # todo: implement other fields like rating, actors, images, seasons, episodes
+        )
 
 
 # Example Usage

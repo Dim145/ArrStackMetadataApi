@@ -8,7 +8,7 @@ showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 async def get_shows(tvdb_id: int):
     from routers.v1.tvdb import TVDB_API
 
-    tv = TVDB_API.get_series_extended(tvdb_id)
+    tv = TVDB_API.get_series_extended(tvdb_id, meta="translations")
 
     show = Show.from_dict(tv)
 
