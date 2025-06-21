@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import List
 from typing import Any
 from dataclasses import dataclass
@@ -6,6 +7,13 @@ import json
 from env import TVDB_RESULT_LANG
 
 CONTENT_RATING_ORDER = ['fra', 'usa']
+
+COVER_TYPES = [
+    {'name': 'Banner', 'id': 1},
+    {'name': 'Poster', 'id': 2},
+    {'name': 'Fanart', 'id': 3},
+    {'name': 'Clearlogo', 'id': 23}
+]
 
 @dataclass
 class TimeOfDay:
@@ -103,6 +111,23 @@ class Episode:
         _overview = str(obj.get("overview"))
         _image = str(obj.get("image"))
         return Episode(_tvdbShowId, _tvdbId, _seasonNumber, _episodeNumber, _airedBeforeSeasonNumber, _airedBeforeEpisodeNumber, _title, _airDate, _airDateUtc, _runtime, _overview, _image)
+
+    @staticmethod
+    def from_tvdb_obj(tvdb_obj: dict) -> 'Episode':
+        return Episode(
+            tvdb_obj.get('seriesId'),
+            tvdb_obj.get('id'),
+            tvdb_obj.get('seasonNumber', 0),
+            tvdb_obj.get('number', 0),
+            tvdb_obj.get('airsBeforeSeason', 0),
+            tvdb_obj.get('airsBeforeEpisode', 0),
+            tvdb_obj.get('name', ''),
+            tvdb_obj.get('aired', ''),
+            datetime.strptime(tvdb_obj.get('aired', ''), '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ') if tvdb_obj.get('aired') else '',
+            tvdb_obj.get('runtime', 0),
+            tvdb_obj.get('overview', ''),
+            tvdb_obj.get('image', '')
+        )
 
 @dataclass
 class Show:
@@ -246,6 +271,56 @@ class Show:
                 break
 
 
+        # get actors from characters list
+        actors = []
+
+        for character in filter(lambda x: x.get('peopleType') == 'Actor', tvdb_obj.get('characters', [])):
+            actors.append(Actor(
+                name=character.get('personName'),
+                character=character.get('character'),
+                image=character.get('personImgURL')
+            ))
+
+        # get images from artworks
+        images = []
+        artworks = tvdb_obj.get('artworks')
+
+        for cover_type in COVER_TYPES:
+            artwork = next((artwork for artwork in artworks if artwork.get('type') == cover_type.get('id')), None)
+
+            if artwork:
+                images.append(Image(
+                    coverType=cover_type.get('name'),
+                    url=artwork.get('image')
+                ))
+
+        # get seasons from seasons list
+        seasons = []
+
+        for season in filter(lambda x: x.get('type', {}).get('type') == 'official', tvdb_obj.get('seasons', [])):
+            season_artworks = filter(lambda x: x.get('seasonId') == season.get('id'), artworks)
+
+            season_images = []
+
+            for season_artwork in season_artworks:
+                cover_type = next((ct for ct in COVER_TYPES if ct.get('id') == season_artwork.get('type')), None)
+
+                if cover_type:
+                    season_images.append(Image(
+                        coverType=cover_type.get('name'),
+                        url=season_artwork.get('image')
+                    ))
+
+            seasons.append(Season(
+                seasonNumber=season.get('number', 0),
+                images=season_images
+            ))
+
+        # episodes not included in the Show object as per the original code
+        # return empty list for episodes and handle it separately if needed
+        episodes = []
+
+
         return Show(
             tvdb_obj.get('id'),
             name,
@@ -256,7 +331,7 @@ class Show:
             TVDB_RESULT_LANG,
             tvdb_obj.get('firstAired'),
             tvdb_obj.get('lastAired'),
-            "TVRAGE_JSP",
+            -1,  # tvRageId is not available in TVDB API
             tvmaze_id,
             tmdb_id,
             imdb_id,
@@ -270,7 +345,11 @@ class Show:
             network,
             genres,
             content_rating,
-            # todo: implement other fields like rating, actors, images, seasons, episodes
+            Rating(count=0, value=''),
+            actors,
+            images,
+            seasons,
+            episodes
         )
 
 
