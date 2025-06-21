@@ -28,7 +28,4 @@ async def get_shows(tvdb_id: int):
 
     show.episodes = [Episode.from_tvdb_obj(tvdb_episode) for tvdb_episode in tvdb_episodes.get('episodes', [])]
 
-    return {
-        "message": f"tvdb_id: {tvdb_id}",
-        "data": show
-    }
+    return show

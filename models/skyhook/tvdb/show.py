@@ -334,13 +334,13 @@ class Show:
             TVDB_RESULT_LANG,
             tvdb_obj.get('firstAired'),
             tvdb_obj.get('lastAired'),
-            -1,  # tvRageId is not available in TVDB API
+            None,  # tvRageId is not available in TVDB API
             tvmaze_id,
             tmdb_id,
             imdb_id,
             mal_ids,
             ani_list_ids,
-            tvdb_obj.get('lastUpdated'),
+            datetime.strptime(tvdb_obj.get('lastUpdated'), "%Y-%m-%d %H:%M:%S").strftime('%Y-%m-%dT%H:%M:%SZ'),
             tvdb_obj.get('status', {}).get('name', 'Unknown'),
             tvdb_obj.get('averageRuntime', 0),
             TimeOfDay.from_string(tvdb_obj.get('airsTime')),
