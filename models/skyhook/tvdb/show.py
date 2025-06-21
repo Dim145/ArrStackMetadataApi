@@ -28,6 +28,9 @@ class TimeOfDay:
 
     @staticmethod
     def from_string(time_str: str) -> 'TimeOfDay':
+        if not time_str:
+            return None
+
         """Convert a time string in HH:MM format to a TimeOfDay instance."""
         hours, minutes = map(int, time_str.split(':'))
         return TimeOfDay(hours, minutes)
@@ -340,7 +343,7 @@ class Show:
             tvdb_obj.get('lastUpdated'),
             tvdb_obj.get('status', {}).get('name', 'Unknown'),
             tvdb_obj.get('averageRuntime', 0),
-            TimeOfDay.from_string(tvdb_obj.get('timeOfDay')),
+            TimeOfDay.from_string(tvdb_obj.get('airsTime')),
             original_network,
             network,
             genres,
