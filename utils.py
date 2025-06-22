@@ -6,7 +6,7 @@ CACHE_TVDB_SEARCH_PREFIX = 'tvdb_search_'
 
 CACHE_SERVER_RESPONSE_PREFIX = 'cache_server_response_'
 
-def cache_or_exec(cache_id: str, func: callable, expire: int = timedelta(hours=6)) -> any:
+def cache_or_exec(cache_id: str, func: callable, expire: timedelta = timedelta(hours=6)) -> any:
     """
     Cache the result of a function call based on an ID.
 

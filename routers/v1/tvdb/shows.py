@@ -1,5 +1,4 @@
 from datetime import timedelta
-from traceback import print_list
 
 from fastapi import APIRouter
 from models.skyhook.tvdb.show import Show, Episode
@@ -14,7 +13,7 @@ async def get_shows(tvdb_id: int):
     from routers.v1.tvdb import TVDB_API
 
     cache_id = CACHE_TVDB_SHOW_PREFIX + str(tvdb_id)
-    tv = cache_or_exec(cache_id, lambda: TVDB_API.get_series_extended(tvdb_id, meta="translations"))
+    tv = cache_or_exec(cache_id, lambda: TVDB_API.get_series_extended(tvdb_id, meta="translations"), expire=timedelta(days=1))
 
     show = Show.from_tvdb_obj(tv)
 
