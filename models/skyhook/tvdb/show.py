@@ -1,4 +1,5 @@
 from datetime import datetime
+from json import JSONEncoder
 from typing import List
 from typing import Any
 from dataclasses import dataclass
@@ -354,8 +355,3 @@ class Show:
             seasons,
             episodes
         )
-
-
-# Example Usage
-# jsonstring = json.loads(myjsonstring)
-# root = Root.from_dict(jsonstring)

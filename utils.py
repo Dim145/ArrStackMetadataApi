@@ -1,5 +1,12 @@
+from datetime import timedelta
 
-def cache_or_exec(cache_id: str, func: callable, expire: int = 3600) -> any:
+CACHE_TVDB_SHOW_PREFIX = 'tvdb_show_'
+CACHE_EPISODES_SUFFIX = '_episodes'
+CACHE_TVDB_SEARCH_PREFIX = 'tvdb_search_'
+
+CACHE_SERVER_RESPONSE_PREFIX = 'cache_server_response_'
+
+def cache_or_exec(cache_id: str, func: callable, expire: int = timedelta(hours=6)) -> any:
     """
     Cache the result of a function call based on an ID.
 

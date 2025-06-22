@@ -1,6 +1,7 @@
 import tvdb_v4_official
 from fastapi import APIRouter
 
+from routers.v1.tvdb.search import searchRouter
 from routers.v1.tvdb.shows import showsRouter
 from env import TVDB_API_KEY
 
@@ -13,3 +14,4 @@ async def root():
     return {"message": "Welcome to the v1 tvdb API"}
 
 tvdbRouter.include_router(router=showsRouter)
+tvdbRouter.include_router(router=searchRouter)
