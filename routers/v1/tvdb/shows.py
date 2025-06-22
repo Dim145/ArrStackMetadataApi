@@ -9,7 +9,7 @@ from utils import cache_or_exec, CACHE_TVDB_SHOW_PREFIX, CACHE_EPISODES_SUFFIX, 
 showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 
 @showsRouter.get("/{tvdb_id}")
-@router_cache(expire=timedelta(hours=1))
+@router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tvdb_shows_{tvdb_id}', expire=timedelta(hours=1))
 async def get_shows(tvdb_id: int):
     from routers.v1.tvdb import TVDB_API
 
