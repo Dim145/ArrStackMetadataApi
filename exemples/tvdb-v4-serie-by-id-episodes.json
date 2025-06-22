@@ -1,0 +1,2811 @@
+{
+  "status": "success",
+  "data": {
+    "series": {
+      "id": 275274,
+      "name": "Rick and Morty",
+      "slug": "rick-and-morty",
+      "image": "https://artworks.thetvdb.com/banners/posters/275274-2.jpg",
+      "nameTranslations": [
+        "ces",
+        "dan",
+        "deu",
+        "eng",
+        "fin",
+        "fra",
+        "heb",
+        "hun",
+        "ita",
+        "pol",
+        "por",
+        "rus",
+        "spa",
+        "swe",
+        "zho",
+        "pt",
+        "tur",
+        "ara",
+        "nld",
+        "bul",
+        "ukr"
+      ],
+      "overviewTranslations": [
+        "ces",
+        "dan",
+        "deu",
+        "eng",
+        "fin",
+        "fra",
+        "heb",
+        "hun",
+        "ita",
+        "pol",
+        "por",
+        "rus",
+        "spa",
+        "swe",
+        "zho",
+        "pt",
+        "tur",
+        "ara",
+        "nld",
+        "bul",
+        "ukr"
+      ],
+      "aliases": [
+        {
+          "language": "zho",
+          "name": "瑞克与莫蒂"
+        },
+        {
+          "language": "ukr",
+          "name": "Рік і Морті"
+        },
+        {
+          "language": "pol",
+          "name": "Rick i Morty"
+        }
+      ],
+      "firstAired": "2013-12-02",
+      "lastAired": "2025-07-27",
+      "nextAired": "2025-06-22",
+      "score": 3360873,
+      "status": {
+        "id": 1,
+        "name": "Continuing",
+        "recordType": "series",
+        "keepUpdated": true
+      },
+      "originalCountry": "usa",
+      "originalLanguage": "eng",
+      "defaultSeasonType": 1,
+      "isOrderRandomized": false,
+      "lastUpdated": "2025-06-17 12:50:11",
+      "averageRuntime": 23,
+      "episodes": null,
+      "overview": "Follows the misadventures of an alcoholic scientist Rick and his overly nervous grandson Morty, who split their time between domestic family life and intergalactic travel. Often finding themselves in a heap of trouble that more often than not is created through their own actions.",
+      "year": "2013"
+    },
+    "episodes": [
+      {
+        "id": 4721616,
+        "seriesId": 275274,
+        "name": "The Real Animated Adventures of Doc and Mharti",
+        "aired": "2012-09-19",
+        "runtime": 4,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Justin actually made this as a way to poke fun at the idea of getting cease and desist letters. \r\n\r\nAt the time (October 2006) he had nothing to lose and his original intention was to call this \"back to the future: the new official universal studios cartoon featuring the new Doc Brown and Marty McFly\" and then just sit back and wait for a letter from their lawyers to arrive. That's actually why it's so filthy. He was just looking to \"troll\" a big studio.\r\n\r\n7 years later, hit new animated TV show on adult swim.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/4721616.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 1,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-12-10 19:56:53",
+        "finaleType": null,
+        "airsBeforeSeason": 1,
+        "airsBeforeEpisode": 1,
+        "year": "2012"
+      },
+      {
+        "id": 4779718,
+        "seriesId": 275274,
+        "name": "Gatorade Commercial #4",
+        "aired": "2008-01-15",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "For the Channel 101 2007 Channy Awards, sponsored by Gatorade, a Gatorade commercial made by Justin Roiland (House of Cosbys, Mr. Sprinkles) featuring DOC and MHARTI! Animation by Kelsy Abbott",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 2,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-12-10 19:59:26",
+        "finaleType": null,
+        "year": "2008"
+      },
+      {
+        "id": 4779719,
+        "seriesId": 275274,
+        "name": "SCUD VLOG #12",
+        "aired": "2012-09-20",
+        "runtime": 3,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "A delightful VLOG made for the deserved promotion of the the issues of SCUD: The Disposable Assassin. \r\nBy Justin Roiland and Kelsy Abbott",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/4779719.jpg",
+        "imageType": 12,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 3,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-12-10 19:58:14",
+        "finaleType": null,
+        "year": "2012"
+      },
+      {
+        "id": 4779720,
+        "seriesId": 275274,
+        "name": "The Freedom of Channel 101",
+        "aired": "2006-12-03",
+        "runtime": 4,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Doc and Mharti return, as Comic Sacrifice details the creative freedom of Channel101.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/4779720.jpg",
+        "imageType": 12,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 4,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2021-08-02 20:11:21",
+        "finaleType": null,
+        "year": "2006"
+      },
+      {
+        "id": 4993904,
+        "seriesId": 275274,
+        "name": "Rick and Morty Panel SDCC 2013",
+        "aired": "2013-07-29",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Six months before the show premieres Dan Harmon, Justin Roiland, Chris Parnell, Spencer Grammer, Kari Wahlgren, and Ryan Ridley try to explain what Rick and Morty is all about to a bunch of confused strangers at San Diego Comic-Con 2013.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/4993904.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 5,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "airsBeforeSeason": 1,
+        "airsBeforeEpisode": 1,
+        "year": "2013"
+      },
+      {
+        "id": 5014929,
+        "seriesId": 275274,
+        "name": "Behind the Scenes",
+        "aired": "2014-10-07",
+        "runtime": 19,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Behind the Scenes of Season 1",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5014929.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 7,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-24 23:57:22",
+        "finaleType": null,
+        "year": "2014"
+      },
+      {
+        "id": 5702078,
+        "seriesId": 275274,
+        "name": "State of Georgia Vs. Denver Fenton Allen",
+        "aired": "2016-08-04",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Judge Morty presides over this real life case as a court transcript is recreated word-for-word.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5702078.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 8,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-12-06 10:04:55",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 5925773,
+        "seriesId": 275274,
+        "name": "Rick and Morty Panel SDCC 2014",
+        "aired": "2014-07-31",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Showrunners, Birdperson, Gazorpazorpfield, Chip Chompers and Pizza McLizza sit down at Sand Diego Comic-Con 2014 to tell us more about the upcoming second season.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5925773.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 9,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2014"
+      },
+      {
+        "id": 5925775,
+        "seriesId": 275274,
+        "name": "Rick and Morty Summon Mr. Meeseeks for a Very Important Task",
+        "aired": "2014-09-23",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Rick and Morty enlist the help of Mr Meeseeks to shill the first season of their hit series on DVD.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5925775.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 10,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2014"
+      },
+      {
+        "id": 5925776,
+        "seriesId": 275274,
+        "name": "Rick and Morty Panel NYCC 2014",
+        "aired": "2014-10-15",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "The shows creators Justin Roiland and Dan Harmon are joined by Sarah Chalke, Chris Parnell and moderator Steve Brandano to discuss the world of Rick and Morty at New York Comic-Con 2014.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5925776.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 11,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2014"
+      },
+      {
+        "id": 5925781,
+        "seriesId": 275274,
+        "name": "Rick and Morty Panel SDCC 2015",
+        "aired": "2015-07-13",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Co-creators Dan Harmon and Justin Roiland are joined by Ryan Ridley and moderator Brian Quinn to discuss all things Rick and Morty at San Diego Comic-Con 2015.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5925781.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 13,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "airsBeforeSeason": 2,
+        "airsBeforeEpisode": 1,
+        "year": "2015"
+      },
+      {
+        "id": 5925784,
+        "seriesId": 275274,
+        "name": "The Misadventures of Rick and Morty",
+        "aired": "2015-11-11",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "A stop motion short film featuring Rick and Morty getting into trouble.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5925784.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 14,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2022-04-25 19:45:17",
+        "finaleType": null,
+        "year": "2015"
+      },
+      {
+        "id": 5925785,
+        "seriesId": 275274,
+        "name": "Carl's Jr and Hardee's Commercial",
+        "aired": "2015-11-30",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Rick informs Morty that they are in a commercial for Carl’s Jr and Hardee’s and introduces him to a range of over-excited burgers.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5925785.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 15,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2015"
+      },
+      {
+        "id": 5925787,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #1 - The Thing",
+        "aired": "2016-10-26",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "A claymation recreation of a classic scene from ‘The Thing’.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113426.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 16,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:20:07",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 5925790,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #2 - The Fly",
+        "aired": "2016-10-26",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "A claymation recreation of a classic scene from ‘The Fly’.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113427.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 17,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:20:26",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 5925793,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #3 - Honey, I Shrunk The Kids",
+        "aired": "2016-10-26",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "A claymation recreation of a classic scene from ‘Honey, I Shrunk the Kids’.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113428.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 18,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:20:49",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 5925794,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #4 - Ex Machina",
+        "aired": "2016-10-27",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "A claymation recreation of a classic scene from ‘Ex Machina’.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113429.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 19,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:21:10",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 5925795,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #5 - Halloween",
+        "aired": "2016-11-03",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "A claymation recreation of a classic scene from ‘Halloween’.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113430.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 20,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:21:37",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 5925798,
+        "seriesId": 275274,
+        "name": "Rick and Morty 8-Bit Intro",
+        "aired": "2017-01-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "The show intro for interdimensional duo Rick and Morty is given a retro twist.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5925798.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 21,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 5962577,
+        "seriesId": 275274,
+        "name": "Rick and Morty Panel SDCC 2016",
+        "aired": "2016-08-07",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Brian Quinn attempts to moderate a panel made up of Dan Harmon, Justin Roiland, Ryan Ridley, Spencer Grammer, Sarah Chalke, and Chris Parnell as they answer questions and question answers at San Diego Comic-Con 2016.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/5962577.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 22,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 6649540,
+        "seriesId": 275274,
+        "name": "Bushworld Adventures",
+        "aired": "2018-04-01",
+        "runtime": 11,
+        "nameTranslations": [
+          "eng",
+          "fra"
+        ],
+        "overview": "On this episode of the critically acclaimed show “Bushworld Adventures”, now celebrating its 10th season, we join our hero’s Reek and Mordi as they seek out the mysterious “Green Cube” of Bendigo. Will they succeed?",
+        "overviewTranslations": [
+          "eng",
+          "fra"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6649540.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 23,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2025-06-17 12:50:09",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 6708232,
+        "seriesId": 275274,
+        "name": "Rick and Morty Presents Jerry's Game from Adult Swim Games",
+        "aired": "2014-12-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "From Adult Swim's Rick and Morty comes Jerry's Game, the pinnacle of mobile gaming! Step into the shoes of Morty's Dad, Jerry Smith, and invest your free time in our balloon-popping simulator for accomplished, respected individuals. Need encouragement for performing infant-level motor functions? Do you wish bubble wrap came with achievements? Jerry's Game has all of this and more! Download it and get poppin’!",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 24,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2014"
+      },
+      {
+        "id": 6708243,
+        "seriesId": 275274,
+        "name": "GlorpDieBlorp plays “Ten Tuesdays at Tinkles”",
+        "aired": "2017-03-05",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "GET YOUR BLORBS OUT! GlorpDieBlorp streams the interdimensional smash hit “Ten Tuesdays at Tinkles” EXCLUSIVELY on Blurtfeed. Watch more at http://galacticfederation.com",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 25,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708246,
+        "seriesId": 275274,
+        "name": "Jerry & Beth's 8-Bit Virtual Vision",
+        "aired": "2017-01-29",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Perception is reality. Created by Paul Robertson.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 26,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708253,
+        "seriesId": 275274,
+        "name": "Rick TV",
+        "aired": "2017-04-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Created by Paul Robertson for Adult Swim.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708253.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 27,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708257,
+        "seriesId": 275274,
+        "name": "Meeseeks Battle",
+        "aired": "2017-04-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Existence is pain, indeed. Created by Paul Robertson for Adult Swim.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708257.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 28,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708258,
+        "seriesId": 275274,
+        "name": "Gear Head",
+        "aired": "2017-05-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Created by Production IG/DEEN for Adult Swim promo.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 29,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708264,
+        "seriesId": 275274,
+        "name": "Beth in the Garage",
+        "aired": "2017-04-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Every family shares a secret. Created by Cat Solen / Artery for Adult swim promo.\r\n",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708264.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 30,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708269,
+        "seriesId": 275274,
+        "name": "Buttworld",
+        "aired": "2017-04-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Created by Cat Solen / Artery for Adult Swim promo.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708269.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 31,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708273,
+        "seriesId": 275274,
+        "name": "Poopy the Gymnast",
+        "aired": "2017-04-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Almost nothing is impossible. Created by Cat Solen / Artery for Adult Swim.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708273.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 32,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708276,
+        "seriesId": 275274,
+        "name": "Summer in the Bathroom",
+        "aired": "2017-04-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Created by Cat Solen / Artery fro Adult Swim promo.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708276.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 33,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708279,
+        "seriesId": 275274,
+        "name": "Unity Connections",
+        "aired": "2017-04-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Fake dating app commercial promo from Rick and Morty.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 34,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708283,
+        "seriesId": 275274,
+        "name": "Drunk Rick Method Acting",
+        "aired": "2017-06-02",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Justin Roiland offers a rare glimpse of his craft and boozing skills.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708283.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 35,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708288,
+        "seriesId": 275274,
+        "name": "The Search For Meaning",
+        "aired": "2017-06-23",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Dan Harmon muses the philosophy guiding Rick and Morty's multiverse.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 36,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708293,
+        "seriesId": 275274,
+        "name": "Eyehole Man",
+        "aired": "2017-07-06",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Eyeholes. Get 'em today. All-new episodes begin July 30th at 11:30p ET.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708293.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 37,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708295,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #6 - 2001: A Space Odyssey",
+        "aired": "2017-07-08",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "In space no one can hear you whine.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113431.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 38,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:22:21",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708302,
+        "seriesId": 275274,
+        "name": "Gearagra",
+        "aired": "2017-07-09",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Seek immediate medical help for a gearection lasting more than four hours.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 39,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708304,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #7 - Blade Runner",
+        "aired": "2017-07-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113433.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 40,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:22:48",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708306,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #8 - Poltergeist",
+        "aired": "2017-07-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113434.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 41,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:23:08",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708309,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #9 - Re-Animator",
+        "aired": "2017-07-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113435.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 42,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:23:28",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708311,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #10 - Aliens",
+        "aired": "2017-07-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113436.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 43,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:23:50",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708316,
+        "seriesId": 275274,
+        "name": "Rick and Morty Design Sneak Peek: Wasteland",
+        "aired": "2017-07-22",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Sponsored content by Snickers. Learn more about the apocalyptic design and kinky fashions of \"Rickmancing the Stone\" S03E02.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708316.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 44,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708320,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #11 - E.T. the Extra-Terrestrial",
+        "aired": "2017-07-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113437.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 45,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:24:16",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708324,
+        "seriesId": 275274,
+        "name": "Inside: 'The Rickshank Redemption'",
+        "aired": "2017-07-24",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Why do we not know Rick's backstory? The answer might surprise you.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 46,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:07:30",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708326,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #12 - Gremlins",
+        "aired": "2017-07-11",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113438.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 47,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:25:52",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708328,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #13 - A Clockwork Orange",
+        "aired": "2017-07-27",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113439.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 48,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:26:13",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708331,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #14 - Invasion of the Body Snatchers",
+        "aired": "2017-07-27",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113440.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 49,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:26:34",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708333,
+        "seriesId": 275274,
+        "name": "The Art of 'Alts'",
+        "aired": "2017-07-28",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Justin Roiland shares alternate lines that didn't quite make the cut.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708333.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 50,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708337,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #15 - The Matrix",
+        "aired": "2017-07-28",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113442.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 51,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:26:54",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708342,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Adventures #16 - Ghostbusters",
+        "aired": "2017-07-30",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62113444.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 52,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-18 18:27:12",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708344,
+        "seriesId": 275274,
+        "name": "Justin Roiland's RC Interview Stunt Rally Extravaganza Show!",
+        "aired": "2017-07-30",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Get ready for INTENSE action plus an EXTREME interview with Rick and Morty storyboard artist, Erica Hayes!",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 53,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708347,
+        "seriesId": 275274,
+        "name": "Inside: 'Rickmancing the Stone'",
+        "aired": "2017-08-04",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Big changes lead to different coping mechanisms for Morty and Summer.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 54,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:01:29",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708350,
+        "seriesId": 275274,
+        "name": "Design Sneak Peek: Pickle Rick",
+        "aired": "2017-08-05",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "How much thought goes into designing pickles and rats? More than you'd think. \"Pickle Rick\"",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708350.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 55,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708352,
+        "seriesId": 275274,
+        "name": "Inside: 'Pickle Rick'",
+        "aired": "2017-08-08",
+        "runtime": 3,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "It's family therapy time in this one broh. Classic stuff. Pickle Rick too.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 56,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:02:43",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708364,
+        "seriesId": 275274,
+        "name": "Rick and Morty Origins Part One",
+        "aired": "2017-08-11",
+        "runtime": 5,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Justin Roiland and Dan Harmon explain how their creative impulses led to collaborating for Channel 101.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 57,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:03:47",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708365,
+        "seriesId": 275274,
+        "name": "Who Are 'The Vindicators'?",
+        "aired": "2017-08-13",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Meet the greatest superheroes and most fearsome villain of the Rick and Morty multiverse.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 58,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708366,
+        "seriesId": 275274,
+        "name": "Inside: 'The Whirly Dirly Conspiracy'",
+        "aired": "2017-08-21",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Rick and Jerry, together... for once.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 59,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:04:58",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708367,
+        "seriesId": 275274,
+        "name": "Inside: 'Rest and Ricklaxation'",
+        "aired": "2017-08-31",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Would Rick and Morty be better off without their worst selves? The answer shouldn't surprise you.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 60,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:11:13",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708368,
+        "seriesId": 275274,
+        "name": "Justin Roiland RC Video Game Car Grindapalooza Stunt Rally Interview Show!",
+        "aired": "2017-09-04",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "The THRILLS don't stop as Justin faces an IMPOSSIBLE trick yet also finds time to interview Rick and Morty writer, Mike McMahan!",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 61,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708369,
+        "seriesId": 275274,
+        "name": "Inside: 'The Ricklantis Mixup'",
+        "aired": "2017-09-17",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Noticed more politics than usual in this episode? There's some good reasons why.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 62,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:11:36",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708370,
+        "seriesId": 275274,
+        "name": "Inside: 'Morty's Mind Blowers'",
+        "aired": "2017-09-14",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Here's why you didn't get another installment of 'Interdimensional Cable'.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 63,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:12:03",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708371,
+        "seriesId": 275274,
+        "name": "Fathers and Daughters (Full Length Song)",
+        "aired": "2017-09-25",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "For all the fathers and daughters by Dan Harmon and Ryan Elder featuring Chaos Chaos",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708371.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 64,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708372,
+        "seriesId": 275274,
+        "name": "Rick and Morty Origins Part Two",
+        "aired": "2017-09-28",
+        "runtime": 5,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Can you imagine anyone else voicing Morty? You'll be surprised how close that came to happening.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 65,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:12:30",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708373,
+        "seriesId": 275274,
+        "name": "Inside: 'The ABC's of Beth'",
+        "aired": "2017-10-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Find out how Rick's questionable parenting made Beth the woman she is today.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 66,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:13:17",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708374,
+        "seriesId": 275274,
+        "name": "Inside: 'The Rickchurian Mortydate'",
+        "aired": "2017-10-05",
+        "runtime": 3,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Discover the logic behind the season finale's surprising shift in power.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 67,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:10:34",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708375,
+        "seriesId": 275274,
+        "name": "The Poop In My Pants",
+        "aired": "2017-11-22",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Enjoy these warm and squishy moments as we explore all that Mr. Poopybutthole has to be thankful for.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708375.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 68,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6708376,
+        "seriesId": 275274,
+        "name": "Vindicators promo",
+        "aired": "2018-03-09",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Remember them as they were. Created by Paul Robertson for Adult swim promo.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 69,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 6708379,
+        "seriesId": 275274,
+        "name": "Rick and Morty x Run The Jewels: Oh Mama",
+        "aired": "2018-03-16",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Adult Swim Festival featuring Run The Jewels is coming to Downtown LA on October 6-7.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708379.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 70,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 6708691,
+        "seriesId": 275274,
+        "name": "Rick and Morty Snickers Promo",
+        "aired": "2018-03-26",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Snickers promo for Rick and Morty.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6708691.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 71,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 6708382,
+        "seriesId": 275274,
+        "name": "Inside the Recording Booth with Spencer Grammer",
+        "aired": "2018-05-10",
+        "runtime": 6,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Behind the scenes with Spencer Grammer doing voice work as Summer.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 72,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:06:41",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 6831941,
+        "seriesId": 275274,
+        "name": "Rick and Morty Present at the Emmy Awards",
+        "aired": "2018-09-17",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "During the 70th Primetime Emmy Awards, the animated iterations of Rick and Morty were featured in a brief segment, where they awarded a trophy to RuPaul's Drag Race.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6831941.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 73,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 6896808,
+        "seriesId": 275274,
+        "name": "Old Spice Commercial",
+        "aired": "2017-10-24",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6896808.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 74,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 6896812,
+        "seriesId": 275274,
+        "name": "Judge Morty: State of Georgia Vs. Rick Allen",
+        "aired": "2016-10-05",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Full color animated version of State of Georgia Vs. Rick Allen.  Fan animated by tiarawhy.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6896812.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 75,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 6906569,
+        "seriesId": 275274,
+        "name": "Alien: Covenant x Rick and Morty",
+        "aired": "2017-05-13",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Rick and Morty receive a distress signal. Rick wants to ignore it but Morty persuades him to help those people. They board the ship that sent the signal.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/episodes/275274/6906569.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 76,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:10:02",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 7227931,
+        "seriesId": 275274,
+        "name": "Moonmen Music Video (Complete) feat. Fart and Morty",
+        "aired": "2015-08-07",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Goodbye Moonmen Music Video (Complete) feat. Fart and Morty",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 139,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2015"
+      },
+      {
+        "id": 7227946,
+        "seriesId": 275274,
+        "name": "Ricking Morty S3E4 \"Vindicators 3: The Return of Worldender\"",
+        "aired": "2017-08-28",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "The Rick and Morty aftershow",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 140,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 7227957,
+        "seriesId": 275274,
+        "name": "Get Schwifty feat. Open Mike Eagle & Father",
+        "aired": "2018-10-15",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "ICYMI Open Mike Eagle and Father perform “Get Schwifty” at the Adult Swim Festival's \"Rick and Morty Musical Ricksperience.\"",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 141,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 7227959,
+        "seriesId": 275274,
+        "name": "Goodbye Moonmen (Live From Adult Swim Festival)",
+        "aired": "2018-10-16",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Enjoy this live rendition featuring Johnathan Rice, from the Rick and Morty Ricksperience at Adult Swim Festival '18.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 142,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 7227960,
+        "seriesId": 275274,
+        "name": "A Rick and Morty Opera: The Terrible Cobs",
+        "aired": "2016-09-14",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "An opera based upon an answer given by Rick and Morty's Justin Roiland, Ryan Ridley, Dan Harmon, and Spencer Grammer at San Diego Comic-Con 2016.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 143,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2016"
+      },
+      {
+        "id": 7227961,
+        "seriesId": 275274,
+        "name": "Blood Dome",
+        "aired": "2018-12-27",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 144,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 7227962,
+        "seriesId": 275274,
+        "name": "Drunk Rick Method Acting: Vol. 2",
+        "aired": "2018-11-21",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Justin Roiland offers another glimpse of his craft and boozing skills.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 145,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2018"
+      },
+      {
+        "id": 7227966,
+        "seriesId": 275274,
+        "name": "Get Schwifty Music Video",
+        "aired": "2015-08-29",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/7227966/screencap/66cda8531d57c.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 146,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-08-27 10:20:04",
+        "finaleType": null,
+        "year": "2015"
+      },
+      {
+        "id": 7292883,
+        "seriesId": 275274,
+        "name": "Rick and Morty San Diego Comic-Con 2019 Panel",
+        "aired": "2019-07-19",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 157,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7292889,
+        "seriesId": 275274,
+        "name": "Rick and Morty React to Their Own Memes - Comic Con 2019",
+        "aired": "2019-07-19",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "It's time to get schwiftyyyyy. Rick and Morty do what they do best and that is reacting to Rick and Morty memes. We talk about their next 70 episodes and if Harry Potter's own Daniel Radcliffe is going to finally make his way to the tiny Rick and Morty screen. We hope he does, we really do.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 158,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7292890,
+        "seriesId": 275274,
+        "name": "Rick and Morty Season 4: Glootie",
+        "aired": "2019-07-19",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "*Ominous beeping noise* FIRST LOOK AT RICK AND MORTY SEASON 4 *Ominous beeping noise*",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 159,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7293107,
+        "seriesId": 275274,
+        "name": "Dan Harmon's Summer Impression - SDCC 2019",
+        "aired": "2019-07-19",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 160,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7293423,
+        "seriesId": 275274,
+        "name": "'Rick and Morty' Cast Joins Us LIVE | SDCC 2019",
+        "aired": "2019-07-19",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "'Rick and Morty' stars Dan Harmon, Justin Roiland, Sarah Chalke, and Spencer Grammer join us LIVE from San Diego Comic Con 2019.\r\nWatch More SDCC 2019 Interviews ►► http://bit.ly/SDCC2019EW",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 161,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7293424,
+        "seriesId": 275274,
+        "name": "Creators Preview Season 4 Guests, Including Taika Waititi",
+        "aired": "2019-07-20",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 162,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-26 23:12:50",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7432378,
+        "seriesId": 275274,
+        "name": "#DeathStranding",
+        "aired": "2019-11-01",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Dire times call for dire measures",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 163,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-13 13:27:07",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7432392,
+        "seriesId": 275274,
+        "name": "Rick and Morty: The Non-Canonical Halloween Adventures",
+        "aired": "2019-10-31",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Created by Lee Hardcastle. This followup to the original run of the Non-Canonical Adventures brings new movie parodies featuring Rick and Morty. The movies featured are: Beetlejuice; The Blair Witch Project; Evil Dead 2; Hellraiser; Home Alone; Jaws; Predator; Reservoir Dogs; Terminator 2; and Videodrome.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/62114095.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 164,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-03-19 10:07:41",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7447436,
+        "seriesId": 275274,
+        "name": "Season 4 Sneak Peek",
+        "aired": "2019-10-14",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Check out this disappointing sneak peek for Rick and Morty, Season 4",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/7447436.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 165,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-27 01:02:48",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7447437,
+        "seriesId": 275274,
+        "name": "Extended Season 4 Sneak Peek",
+        "aired": "2019-10-31",
+        "runtime": 25,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "The creators give an extended look at what is destined to be the craziest season of Rick and Morty.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 166,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-11-27 01:00:25",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7447438,
+        "seriesId": 275274,
+        "name": "Inside: 'Edge of Tomorty: Rick Die Rickpeat'",
+        "aired": "2019-11-10",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Get a special behind-the-scenes look at the episode \"Edge of Tomorty: Rick Die Rickpeat",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 167,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-24 23:56:02",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7456456,
+        "seriesId": 275274,
+        "name": "Inside: 'The Old Man And The Seat'",
+        "aired": "2019-11-17",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Get a special behind-the-scenes look at the episode \"The Old Man And The Seat\"",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 168,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:08:46",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7467879,
+        "seriesId": 275274,
+        "name": "Inside: 'One Crew Over the Crewcoo's Morty'",
+        "aired": "2019-11-24",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Get a special behind-the-scenes look at the episode \"One Crew Over The Crewcoo's Morty\"",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 169,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-24 23:48:18",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7480762,
+        "seriesId": 275274,
+        "name": "Rick And Morty Pinball Teaser",
+        "aired": "2019-12-04",
+        "runtime": null,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Coming Christmas of 2019, from Adult Swim and Spooky Pinball LLC!",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 170,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2019-12-05 00:26:15",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7488753,
+        "seriesId": 275274,
+        "name": "Inside: 'Claw and Hoarder: Special Ricktim’s Morty'",
+        "aired": "2019-12-08",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Get a special behind-the-scenes look at the episode \"Claw and Hoarder: Special Ricktim’s Morty.”",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 171,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-24 23:51:12",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7498275,
+        "seriesId": 275274,
+        "name": "Inside: 'Rattlestar Ricklactica'",
+        "aired": "2019-12-15",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Get a special behind-the-scenes look at the episode “Rattlestar Ricklactica”",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 172,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-24 23:52:57",
+        "finaleType": null,
+        "year": "2019"
+      },
+      {
+        "id": 7656571,
+        "seriesId": 275274,
+        "name": "Samurai & Shogun",
+        "aired": "2020-03-29",
+        "runtime": 6,
+        "nameTranslations": [
+          "eng",
+          "fra"
+        ],
+        "overview": "Drunken life, dreamy death.",
+        "overviewTranslations": [
+          "eng",
+          "fra"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/5ee1758abf93c.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 173,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-08-25 14:17:44",
+        "finaleType": null,
+        "year": "2020"
+      },
+      {
+        "id": 7672014,
+        "seriesId": 275274,
+        "name": "Rick and Morty x Pringles - 2020 Big Game Commercial",
+        "aired": "2020-01-28",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Stack Pringles. Make endless new flavors. Stack Pringles. Make endless new flavors. Stack Pringles. Make endless new flavors. This is not an ad.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/5ec3463d7df00.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 174,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2020-05-19 02:36:44",
+        "finaleType": null,
+        "year": "2020"
+      },
+      {
+        "id": 7947443,
+        "seriesId": 275274,
+        "name": "Rick and Morty Vs. Genocider",
+        "aired": "2020-07-25",
+        "runtime": 9,
+        "nameTranslations": [
+          "eng",
+          "spa"
+        ],
+        "overview": "Directed by ‘Tower of God’ director, Takeshi Sano, Morty goes on an adventure to Tokyo, Japan to try and help stop “The Genocider”. Nothing weird happens. Produced by Sola Entertainment and animated at Telecom Animation Film.",
+        "overviewTranslations": [
+          "eng",
+          "spa"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/5f7149e48b592.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 175,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:16:37",
+        "finaleType": null,
+        "year": "2020"
+      },
+      {
+        "id": 8170348,
+        "seriesId": 275274,
+        "name": "Inside: 'Vindicators 3: The Return of Worldender'",
+        "aired": "2017-08-13",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": null,
+        "overviewTranslations": [],
+        "image": "https://artworks.thetvdb.com/banners/series/275274/episodes/60168451a547b.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 176,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:15:05",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 8407741,
+        "seriesId": 275274,
+        "name": "Rick and Morty in the Eternal Nightmare Machine",
+        "aired": "2021-05-01",
+        "runtime": 17,
+        "nameTranslations": [
+          "eng",
+          "fra"
+        ],
+        "overview": "The simulation is corrupt, repair the core.",
+        "overviewTranslations": [
+          "eng",
+          "fra"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/8407741/screencap/609295e0ad798.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 177,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2021-08-09 07:50:57",
+        "finaleType": null,
+        "airsAfterSeason": 4,
+        "year": "2021"
+      },
+      {
+        "id": 8603536,
+        "seriesId": 275274,
+        "name": "Summer Meets God (Rick Meets Evil)",
+        "aired": "2021-08-02",
+        "runtime": 15,
+        "nameTranslations": [
+          "eng",
+          "spa"
+        ],
+        "overview": "Summer's new boyfriend isn’t human, Jerry's in big trouble as usual, and Rick is well… just being Rick.",
+        "overviewTranslations": [
+          "eng",
+          "spa"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/8603536/screencap/6113df1b257db.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 178,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2023-09-05 20:56:51",
+        "finaleType": null,
+        "airsBeforeSeason": 5,
+        "airsBeforeEpisode": 8,
+        "year": "2021"
+      },
+      {
+        "id": 8614370,
+        "seriesId": 275274,
+        "name": "Exquisite Corpse",
+        "aired": "2017-07-16",
+        "runtime": 4,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Take a trip through the Rick and Morty multiverse.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/8614370/screencap/6165c7d26ebf4.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 179,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 01:14:18",
+        "finaleType": null,
+        "year": "2017"
+      },
+      {
+        "id": 8768833,
+        "seriesId": 275274,
+        "name": "The Great Yokai Battle of Akihabara",
+        "aired": "2021-10-10",
+        "runtime": 11,
+        "nameTranslations": [
+          "eng",
+          "spa"
+        ],
+        "overview": "Rick's toaster is broken. To repair it, he and Morty must go to Akihabara to find the perfect screw, and battle an old rival along the way.",
+        "overviewTranslations": [
+          "eng",
+          "fra",
+          "spa"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/8768833/screencap/61c33b25dceca.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 180,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-02-25 00:15:40",
+        "finaleType": null,
+        "airsAfterSeason": 5,
+        "year": "2021"
+      },
+      {
+        "id": 8850725,
+        "seriesId": 275274,
+        "name": "Samurai & Shogun Part 2",
+        "aired": "2021-11-13",
+        "runtime": 6,
+        "nameTranslations": [
+          "eng",
+          "fra"
+        ],
+        "overview": "Paying homage to the classic tale Lone Wolf and Cub, Samurai Rick defends Shogun Morty against all comers. In part one, we learned that Rick WTM-72 is not to be underestimated. In the finale, his savagery knows no limit!",
+        "overviewTranslations": [
+          "eng",
+          "fra"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/8850725/screencap/619bb79811363.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 181,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-12-23 09:31:46",
+        "finaleType": null,
+        "airsAfterSeason": 5,
+        "year": "2021"
+      },
+      {
+        "id": 9341239,
+        "seriesId": 275274,
+        "name": "Rick and Morty + adidas X Speedportal | The Adventure",
+        "aired": "2022-07-19",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "After receiving a unique set of skills packed into the new adidas X Speedportal boots, it's up to Morty to win the International Unlicensed Cup. The adidas X Speedportal, now faster in all dimensions.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/9341239/screencap/63191d2a94c3b.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 182,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-12-23 09:31:20",
+        "finaleType": null,
+        "airsAfterSeason": 5,
+        "year": "2022"
+      },
+      {
+        "id": 9367692,
+        "seriesId": 275274,
+        "name": "Rick and Morty + Wendy’s | Choose Wisely",
+        "aired": "2022-09-04",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Choose wisely, before Wendy's breakfast chooses Morty.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 183,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-12-23 09:30:52",
+        "finaleType": null,
+        "airsAfterSeason": 5,
+        "year": "2022"
+      },
+      {
+        "id": 9367694,
+        "seriesId": 275274,
+        "name": "Rick and Morty x PlayStation | God of War Ragnarök",
+        "aired": "2022-09-04",
+        "runtime": 1,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Rick and Morty go on an epic adventure. Seriously.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 184,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-12-23 09:31:07",
+        "finaleType": null,
+        "airsAfterSeason": 5,
+        "year": "2022"
+      },
+      {
+        "id": 9367700,
+        "seriesId": 275274,
+        "name": "Inside the Episode: Solaricks",
+        "aired": "2022-09-05",
+        "runtime": 3,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Writer Albro Lundy, co-creator Dan Harmon, director Jacob Hair and showrunner Scott Marder dig into the season 6 premiere and discuss Morty’s return to the Cronenberged dimension, Rick’s grand mission, and the episode’s shocking reveal.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 185,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-12-23 09:29:59",
+        "finaleType": null,
+        "airsBeforeSeason": 6,
+        "airsBeforeEpisode": 2,
+        "year": "2022"
+      },
+      {
+        "id": 9425589,
+        "seriesId": 275274,
+        "name": "Vindicators 2: First Love",
+        "aired": "2022-07-23",
+        "runtime": 2,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "Noob Noob finds love in a hopeless place.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": null,
+        "imageType": null,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 186,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-12-23 09:31:33",
+        "finaleType": null,
+        "airsAfterSeason": 5,
+        "year": "2022"
+      },
+      {
+        "id": 9432931,
+        "seriesId": 275274,
+        "name": "Summer's Sleepover",
+        "aired": "2022-10-30",
+        "runtime": 11,
+        "nameTranslations": [
+          "eng"
+        ],
+        "overview": "An unexpected guests livens up Summer's sleepover party in this trippy horror short form Claymation filmmaker Lee Hardcastle.",
+        "overviewTranslations": [
+          "eng"
+        ],
+        "image": "https://artworks.thetvdb.com/banners/v4/episode/9432931/screencap/63616979ae90f.jpg",
+        "imageType": 11,
+        "isMovie": 0,
+        "seasons": null,
+        "number": 187,
+        "absoluteNumber": 0,
+        "seasonNumber": 0,
+        "lastUpdated": "2024-12-23 09:31:59",
+        "finaleType": "season",
+        "airsBeforeSeason": 6,
+        "airsBeforeEpisode": 7,
+        "year": "2022"
+      }
+    ]
+  },
+  "links": {
+    "prev": null,
+    "self": "https://api4.thetvdb.com/v4/series/275274/episodes/default?season=0&page=0",
+    "next": null,
+    "total_items": 113,
+    "page_size": 500
+  }
+}
