@@ -11,3 +11,4 @@ venv*
 Dockerfile
 docker-compose.yaml
 .dockerignore
+exemples
