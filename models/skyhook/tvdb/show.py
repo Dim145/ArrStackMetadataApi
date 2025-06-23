@@ -324,6 +324,14 @@ class Show:
         # return empty list for episodes and handle it separately if needed
         episodes = []
 
+        # get date string and set to None if empty
+        first_aired = tvdb_obj.get('firstAired', "")
+        if first_aired == "":
+            first_aired = None
+
+        last_aired = tvdb_obj.get('lastAired', "")
+        if last_aired == "":
+            last_aired = None
 
         return Show(
             tvdb_obj.get('id'),
@@ -333,8 +341,8 @@ class Show:
             tvdb_obj.get('originalCountry'),
             tvdb_obj.get('originalLanguage'),
             TVDB_RESULT_LANG,
-            tvdb_obj.get('firstAired'),
-            tvdb_obj.get('lastAired'),
+            first_aired,
+            last_aired,
             None,  # tvRageId is not available in TVDB API
             tvmaze_id,
             tmdb_id,
