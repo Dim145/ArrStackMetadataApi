@@ -15,7 +15,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.USER_TOKEN_GITHUB }}
 
       - name: set lower case owner name
         run: |
@@ -24,11 +24,11 @@ jobs:
           REPOSITORY: '${{ github.repository }}'
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ env.REPOSITORY_LC }}/main:latest
-            ghcr.io/${{ env.REPOSITORY_LC }}/main:${{ github.ref_name }}
+            ghcr.io/${{ env.REPOSITORY_LC }}:latest
+            ghcr.io/${{ env.REPOSITORY_LC }}:${{ github.ref_name }}
