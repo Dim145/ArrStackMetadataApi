@@ -30,5 +30,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ env.REPOSITORY_LC }}:latest
-            ghcr.io/${{ env.REPOSITORY_LC }}:${{ github.ref_name }}
+            ghcr.io/${{ env.REPOSITORY_LC }}/main:latest
+            ghcr.io/${{ env.REPOSITORY_LC }}/main:${{ github.ref_name }}
