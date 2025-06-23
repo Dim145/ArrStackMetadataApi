@@ -1,0 +1,35 @@
+name: publish basic container
+
+on:
+  release:
+    types: [ published ]
+  workflow_call:
+    inputs:
+      ref:
+        description: 'The git ref to build the image for'
+        required: true
+        default: ${{ github.ref_name }}
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set lower case owner name
+        run: |
+          echo "REPOSITORY_LC=${REPOSITORY,,}" >>${GITHUB_ENV}
+        env:
+          REPOSITORY: '${{ github.repository }}'
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          build-args: GITHUB_TOKEN=${{ secrets.USER_TOKEN_GITHUB }}
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.REPOSITORY_LC }}:latest
+            ${{ env.REPOSITORY_LC }}:${{ github.ref_name }}
