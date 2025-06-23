@@ -114,7 +114,7 @@ class Episode:
         _runtime = int(obj.get("runtime"))
         _overview = str(obj.get("overview"))
         _image = str(obj.get("image"))
-        return Episode(_tvdbShowId, _tvdbId, _seasonNumber, _episodeNumber, _airedBeforeSeasonNumber, _airedBeforeEpisodeNumber, _title, _airDate, _airDateUtc, _runtime, _overview, _image)
+        return Episode(_tvdbShowId, _tvdbId, _seasonNumber, _episodeNumber, _absoluteEpisodeNumber, _airedBeforeSeasonNumber, _airedBeforeEpisodeNumber, _title, _airDate, _airDateUtc, _runtime, _overview, _image)
 
     @staticmethod
     def from_tvdb_obj(tvdb_obj: dict) -> 'Episode':
