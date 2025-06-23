@@ -34,7 +34,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          build-args: GITHUB_TOKEN=${{ secrets.USER_TOKEN_GITHUB }}
           platforms: linux/amd64
           push: true
           tags: |
