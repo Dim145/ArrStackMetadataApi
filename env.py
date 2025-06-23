@@ -8,7 +8,7 @@ MUSICBRAINZ_API_KEY = os.getenv("MUSICBRAINZ_API_KEY")
 
 METADATA_SERVER_FOR = os.getenv("METADATA_SERVER_FOR")
 
-TVDB_RESULT_LANG = os.getenv("TVDB_RESULT_LANG", "eng").lower()
+LANGS_FALLBACK = os.getenv("LANGS_FALLBACK", "eng").lower().split(",")
 
 REDIS_CACHE = redis.Redis(
     host=os.getenv("REDIS_HOST", "localhost"),

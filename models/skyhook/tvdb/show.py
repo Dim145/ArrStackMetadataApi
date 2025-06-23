@@ -5,7 +5,7 @@ from typing import Any
 from dataclasses import dataclass
 import json
 
-from env import TVDB_RESULT_LANG
+from env import LANGS_FALLBACK
 
 CONTENT_RATING_ORDER = ['fra', 'usa']
 
@@ -199,15 +199,22 @@ class Show:
     @staticmethod
     def from_tvdb_obj(tvdb_obj: dict) -> 'Show':
 
+        lang_fallback_index = -1
+
         # Extract the name from translations if available
         translations = tvdb_obj.get('translations', {})
         name_translations = translations.get('name_translations', [])
 
         name = ""
 
-        for translation in name_translations:
-            if translation.get('language') == TVDB_RESULT_LANG and not translation.get('isAlias', False):
-                name = translation.get('name')
+        for lang, index in LANGS_FALLBACK:
+            for translation in name_translations:
+                if translation.get('language') == lang and not translation.get('isAlias', False):
+                    name = translation.get('name')
+                    break
+
+            if name != "":
+                lang_fallback_index = index
                 break
 
         if name == "":
@@ -218,9 +225,12 @@ class Show:
 
         overview = ""
 
-        for translation in overview_translations:
-            if translation.get('language') == TVDB_RESULT_LANG:
-                overview = translation.get('overview')
+        for lang in LANGS_FALLBACK:
+            for translation in overview_translations:
+                if translation.get('language') == lang:
+                    overview = translation.get('overview')
+                    break
+            if overview != "":
                 break
 
         if overview == "":
@@ -340,7 +350,7 @@ class Show:
             tvdb_obj.get('slug'),
             tvdb_obj.get('originalCountry'),
             tvdb_obj.get('originalLanguage'),
-            TVDB_RESULT_LANG,
+            LANGS_FALLBACK[lang_fallback_index] if lang_fallback_index > -1 else tvdb_obj.get('originalLanguage'),
             first_aired,
             last_aired,
             None,  # tvRageId is not available in TVDB API
