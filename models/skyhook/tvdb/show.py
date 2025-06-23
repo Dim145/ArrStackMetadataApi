@@ -1,9 +1,7 @@
 from datetime import datetime
-from json import JSONEncoder
 from typing import List
 from typing import Any
 from dataclasses import dataclass
-import json
 
 from env import LANGS_FALLBACK
 
@@ -207,7 +205,7 @@ class Show:
 
         name = ""
 
-        for lang, index in LANGS_FALLBACK:
+        for index, lang in enumerate(LANGS_FALLBACK):
             for translation in name_translations:
                 if translation.get('language') == lang and not translation.get('isAlias', False):
                     name = translation.get('name')
