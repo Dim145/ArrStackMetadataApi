@@ -89,6 +89,7 @@ class Episode:
     tvdbId: int
     seasonNumber: int
     episodeNumber: int
+    absoluteEpisodeNumber: int
     airedBeforeSeasonNumber: int
     airedBeforeEpisodeNumber: int
     title: str
@@ -104,6 +105,7 @@ class Episode:
         _tvdbId = int(obj.get("tvdbId"))
         _seasonNumber = int(obj.get("seasonNumber"))
         _episodeNumber = int(obj.get("episodeNumber"))
+        _absoluteEpisodeNumber = int(obj.get("absoluteEpisodeNumber"))
         _airedBeforeSeasonNumber = int(obj.get("airedBeforeSeasonNumber"))
         _airedBeforeEpisodeNumber = int(obj.get("airedBeforeEpisodeNumber"))
         _title = str(obj.get("title"))
@@ -121,6 +123,7 @@ class Episode:
             tvdb_obj.get('id'),
             tvdb_obj.get('seasonNumber', 0),
             tvdb_obj.get('number', 0),
+            tvdb_obj.get('absoluteNumber', 0),
             tvdb_obj.get('airsBeforeSeason', 0),
             tvdb_obj.get('airsBeforeEpisode', 0),
             tvdb_obj.get('name', ''),

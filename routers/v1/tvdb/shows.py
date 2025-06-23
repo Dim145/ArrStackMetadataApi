@@ -21,9 +21,9 @@ async def get_shows(tvdb_id: int):
     count = 0
 
     while True:
-        # Set the language for the show
         cache_id = CACHE_TVDB_SHOW_PREFIX + str(tvdb_id) + CACHE_EPISODES_SUFFIX + f"_{count}"
-        response = cache_or_exec(cache_id, lambda: TVDB_API.get_series_episodes(tvdb_id, season_type="default", page=count))
+        # set static eng lang for now because need of loop for each episode for lang fallback.
+        response = cache_or_exec(cache_id, lambda: TVDB_API.get_series_episodes(tvdb_id, season_type="default", page=count, lang="eng"))
 
         tmp = response.get('episodes', [])
 
