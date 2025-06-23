@@ -3,13 +3,6 @@ name: publish basic container
 on:
   release:
     types: [ published ]
-  workflow_call:
-    inputs:
-      ref:
-        description: 'The git ref to build the image for'
-        required: true
-        default: ${{ github.ref_name }}
-        type: string
 
 jobs:
   build:
