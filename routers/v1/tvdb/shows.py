@@ -17,10 +17,23 @@ async def get_shows(tvdb_id: int):
 
     show = Show.from_tvdb_obj(tv)
 
-    # Set the language for the show
-    cache_id = CACHE_TVDB_SHOW_PREFIX + str(tvdb_id) + CACHE_EPISODES_SUFFIX
-    tvdb_episodes = cache_or_exec(cache_id, lambda: TVDB_API.get_series_episodes(tvdb_id, season_type="default", page=0))
+    tvdb_episodes = []
+    count = 0
 
-    show.episodes = [Episode.from_tvdb_obj(tvdb_episode) for tvdb_episode in tvdb_episodes.get('episodes', [])]
+    while True:
+        # Set the language for the show
+        cache_id = CACHE_TVDB_SHOW_PREFIX + str(tvdb_id) + CACHE_EPISODES_SUFFIX + f"_{count}"
+        response = cache_or_exec(cache_id, lambda: TVDB_API.get_series_episodes(tvdb_id, season_type="default", page=count))
+
+        tmp = response.get('episodes', [])
+
+        if len(tmp) == 0:
+            break
+        else:
+            count += 1
+            tvdb_episodes.extend(tmp)
+
+
+    show.episodes = [Episode.from_tvdb_obj(tvdb_episode) for tvdb_episode in tvdb_episodes]
 
     return show
