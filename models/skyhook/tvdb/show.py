@@ -201,13 +201,13 @@ class Show:
 
         # Extract the name from translations if available
         translations = tvdb_obj.get('translations', {})
-        name_translations = translations.get('name_translations', [])
+        name_translations = translations.get('nameTranslations') or []
 
         name = ""
 
         for index, lang in enumerate(LANGS_FALLBACK):
             for translation in name_translations:
-                if translation.get('language') == lang and not translation.get('isAlias', False):
+                if translation.get('language') == lang and not (translation.get('isAlias') or False):
                     name = translation.get('name')
                     break
 
@@ -219,7 +219,7 @@ class Show:
             name = tvdb_obj.get('name')
 
         # Extract overview from translations if available
-        overview_translations = translations.get('overview_translations', [])
+        overview_translations = translations.get('overviewTranslations') or []
 
         overview = ""
 
@@ -236,7 +236,7 @@ class Show:
 
         # get tvmaze id from remote_ids
         tvmaze_id = None
-        remote_ids = tvdb_obj.get('remote_ids', [])
+        remote_ids = tvdb_obj.get('remoteIds', [])
 
         if isinstance(remote_ids, list):
             tvmaze_id = next((item.get('id') for item in remote_ids if item.get('type') == 19), None)

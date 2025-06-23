@@ -11,7 +11,7 @@ services:
       TVDB_API_KEY: "xxx"
       METADATA_SERVER_FOR: "sonarr"
       REDIS_HOST: redis
-      TVDB_RESULT_LANG: fra,eng
+      LANGS_FALLBACK: fra,eng
 
 
   redis:
