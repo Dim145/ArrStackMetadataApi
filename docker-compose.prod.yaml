@@ -1,0 +1,85 @@
+services:
+  metadata-server:
+    image: ghcr.io/dim145/arrstackmetadataapi:latest
+    container_name: metadata-server
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      TVDB_API_KEY: "xxx"
+      METADATA_SERVER_FOR: "sonarr"
+      REDIS_HOST: redis
+      LANGS_FALLBACK: fra,eng
+    networks:
+      - internal
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - internal
+
+# optionnel, pour avoir une interface graphique pour redis qui permet de géré le cache
+  redis-insights:
+    image: redis/redisinsight
+    container_name: redis-insights
+    restart: unless-stopped
+    ports:
+      - '5540:5540'
+    volumes:
+      - redis_insights_data:/data
+    depends_on:
+      - redis
+    networks:
+      - internal
+
+  reverse-proxy:
+    image: nginx:alpine
+    restart: unless-stopped
+    networks:
+      internal:
+        ipv4_address: 172.173.10.100 # une ip statique est requise
+    volumes:
+      - ./docker-data/reverse-proxy:/etc/nginx/conf.d/ # emplacement du fichier de conf nginx (ci-dessous)
+      - ./docker-data/certs:/certs # emplacement des certificats auto-signés
+
+  # exemple d'une instance sonarr, à supprimer ou adapter pour votre usage
+  sonarr-test:
+    image: linuxserver/sonarr:4.0.15
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - sonarr_config:/config
+      - ./docker-data/certs/cert.crt:/usr/local/share/ca-certificates/cert.crt
+      - ./docker-data/update-ca.sh:/custom-cont-init.d/update-ca.sh
+    extra_hosts:
+      - "skyhook.sonarr.tv:172.173.10.100"
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+    networks:
+      - internal
+    healthcheck:
+      interval: 15s
+      retries: 5
+      start_period: 30s
+      test: curl --fail http://localhost:8989 || exit 1
+      timeout: 20s
+
+volumes:
+  redis_data:
+  redis_insights_data:
+  sonarr_config:
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.173.10.0/24
+          gateway: 172.173.10.1
