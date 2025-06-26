@@ -118,6 +118,12 @@ class Episode:
 
     @staticmethod
     def from_tvdb_obj(tvdb_obj: dict) -> 'Episode':
+
+        image_link = tvdb_obj.get('image', '')
+
+        if not image_link.startswith('http') and len(image_link) > 0:
+            image_link = 'https://artworks.thetvdb.com' + image_link
+
         return Episode(
             tvdb_obj.get('seriesId'),
             tvdb_obj.get('id'),
@@ -131,7 +137,7 @@ class Episode:
             datetime.strptime(tvdb_obj.get('aired', ''), '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ') if tvdb_obj.get('aired') else '',
             tvdb_obj.get('runtime', 0),
             tvdb_obj.get('overview', ''),
-            tvdb_obj.get('image', '')
+            image_link
         )
 
 @dataclass
