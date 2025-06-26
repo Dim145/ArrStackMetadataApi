@@ -166,6 +166,7 @@ class Show:
     genres: List[str]
     contentRating: str
     rating: Rating
+    alternativeTitles: List[dict]
     actors: List[Actor]
     images: List[Image]
     seasons: List[Season]
@@ -227,6 +228,13 @@ class Show:
         if name == "":
             name = tvdb_obj.get('name')
 
+        alternative_titles = []
+
+        for index, lang in enumerate(LANGS_FALLBACK):
+            for translation in name_translations:
+                if translation.get('language') == lang and (translation.get('isAlias') or False):
+                    alternative_titles.append({"title": translation.get('name')})
+
         # Extract overview from translations if available
         overview_translations = translations.get('overviewTranslations') or []
 
@@ -249,12 +257,16 @@ class Show:
 
         if isinstance(remote_ids, list):
             tvmaze_id = next((item.get('id') for item in remote_ids if item.get('type') == 19), None)
+            if tvmaze_id is not None:
+                tvmaze_id = int(tvmaze_id)
 
         # get tmdb id from remote_ids
         tmdb_id = None
 
         if isinstance(remote_ids, list):
             tmdb_id = next((item.get('id') for item in remote_ids if item.get('type') == 12), None)
+            if tmdb_id is not None:
+                tmdb_id = int(tmdb_id)
 
         # get imdb id from remote_ids
         imdb_id = None
@@ -278,6 +290,7 @@ class Show:
 
         # get genres name from genres list
         genres = [genre.get('name') for genre in tvdb_obj.get('genres', [])]
+        genres.sort()
 
         # get content rating from contentRatings (fra or usa)
         content_ratings = tvdb_obj.get('contentRatings', [])
@@ -298,7 +311,7 @@ class Show:
         for character in filter(lambda x: x.get('peopleType') == 'Actor', tvdb_obj.get('characters', [])):
             actors.append(Actor(
                 name=character.get('personName'),
-                character=character.get('character'),
+                character=character.get('name'),
                 image=character.get('personImgURL')
             ))
 
@@ -375,6 +388,7 @@ class Show:
             genres,
             content_rating,
             Rating(count=0, value=''),
+            alternative_titles,
             actors,
             images,
             seasons,
