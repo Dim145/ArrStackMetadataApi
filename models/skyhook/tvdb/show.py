@@ -8,10 +8,10 @@ from env import LANGS_FALLBACK
 CONTENT_RATING_ORDER = ['fra', 'usa']
 
 COVER_TYPES = [
-    {'name': 'Banner', 'id': 1},
-    {'name': 'Poster', 'id': 2},
-    {'name': 'Fanart', 'id': 3},
-    {'name': 'Clearlogo', 'id': 23}
+    {'name': 'Banner', 'id': 1, 'includeText': None},
+    {'name': 'Poster', 'id': 2, 'includeText': True},
+    {'name': 'Fanart', 'id': 3, 'includeText': None},
+    {'name': 'Clearlogo', 'id': 23, 'includeText': None}
 ]
 
 @dataclass
@@ -319,8 +319,23 @@ class Show:
         images = []
         artworks = tvdb_obj.get('artworks')
 
+        # sort artworks by id reversing the order
+        artworks.sort(key=lambda x: x.get('id', 0), reverse=True)
+
         for cover_type in COVER_TYPES:
-            artwork = next((artwork for artwork in artworks if artwork.get('type') == cover_type.get('id')), None)
+            artwork = None
+
+            for art_obj in artworks:
+                if art_obj.get('type') != cover_type.get('id'):
+                    continue
+
+                if cover_type.get('includeText') is True and (not LANGS_FALLBACK.__contains__(art_obj.get('language'))):
+                    continue
+
+                if cover_type.get('includeText') is None or cover_type.get('includeText') == art_obj.get('includesText'):
+                    artwork = art_obj
+                    break
+
 
             if artwork:
                 images.append(Image(
