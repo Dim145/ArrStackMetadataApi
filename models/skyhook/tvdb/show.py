@@ -336,6 +336,9 @@ class Show:
                     artwork = art_obj
                     break
 
+            if artwork is None and cover_type.get('id') is 2:
+                # if no poster found, use the first available image as a fallback for poster
+                artwork = next((art for art in artworks if art.get('type') == cover_type.get('id')), None)
 
             if artwork:
                 images.append(Image(
