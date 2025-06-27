@@ -10,6 +10,7 @@ CONTENT_RATING_ORDER = ['fra', 'usa']
 COVER_TYPES = [
     {'name': 'Banner', 'id': 1, 'includeText': None},
     {'name': 'Poster', 'id': 2, 'includeText': True},
+    {'name': 'Poster', 'id': 7, 'includeText': True}, # Season Poster
     {'name': 'Fanart', 'id': 3, 'includeText': None},
     {'name': 'Clearlogo', 'id': 23, 'includeText': None}
 ]
@@ -336,7 +337,7 @@ class Show:
                     artwork = art_obj
                     break
 
-            if artwork is None and cover_type.get('id') is 2:
+            if artwork is None and cover_type.get('id') == 2:
                 # if no poster found, use the first available image as a fallback for poster
                 artwork = next((art for art in artworks if art.get('type') == cover_type.get('id')), None)
 
@@ -350,14 +351,21 @@ class Show:
         seasons = []
 
         for season in filter(lambda x: x.get('type', {}).get('type') == 'official', tvdb_obj.get('seasons', [])):
-            season_artworks = filter(lambda x: x.get('seasonId') == season.get('id'), artworks)
+            season_artworks = list(filter(lambda x: int(x.get('seasonId', 0)) == int(season.get('id')), artworks))
 
             season_images = []
 
-            for season_artwork in season_artworks:
-                cover_type = next((ct for ct in COVER_TYPES if ct.get('id') == season_artwork.get('type')), None)
+            for cover_type in COVER_TYPES:
+                season_artwork = None
+                print(cover_type)
 
-                if cover_type:
+                for art_obj in season_artworks:
+                    print(f"Checking artwork {art_obj.get('type')} against cover type {cover_type.get('id')}")
+                    if art_obj.get('type') == cover_type.get('id'):
+                        season_artwork = art_obj
+                        break
+
+                if season_artwork:
                     season_images.append(Image(
                         coverType=cover_type.get('name'),
                         url=season_artwork.get('image')
