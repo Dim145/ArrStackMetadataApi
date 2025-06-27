@@ -90,7 +90,7 @@ class Episode:
     tvdbId: int
     seasonNumber: int
     episodeNumber: int
-    absoluteEpisodeNumber: int
+    absoluteEpisodeNumber: int | None
     airedBeforeSeasonNumber: int
     airedBeforeEpisodeNumber: int
     title: str
@@ -125,12 +125,17 @@ class Episode:
         if not image_link.startswith('http') and len(image_link) > 0:
             image_link = 'https://artworks.thetvdb.com' + image_link
 
+        absolute_episode_number = tvdb_obj.get('absoluteNumber', None)
+
+        if absolute_episode_number == 0:
+            absolute_episode_number = None
+
         return Episode(
             tvdb_obj.get('seriesId'),
             tvdb_obj.get('id'),
             tvdb_obj.get('seasonNumber', 0),
             tvdb_obj.get('number', 0),
-            tvdb_obj.get('absoluteNumber', 0),
+            absolute_episode_number,
             tvdb_obj.get('airsBeforeSeason', 0),
             tvdb_obj.get('airsBeforeEpisode', 0),
             tvdb_obj.get('name', ''),
