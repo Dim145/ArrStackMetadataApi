@@ -19,7 +19,7 @@ Les fonctionnalités implémentées sont les suivantes :
     - [ ] anilist
     - [ ] mal
     - [ ] imdb
-  - [ ] récupération des mété-données manquante depuis TVDB
+  - [ ] récupération des méta-données manquante depuis TVDB
     - [ ] l'horaire de sortie des épisodes
     - [ ] tvRageId
     - [ ] malIds
