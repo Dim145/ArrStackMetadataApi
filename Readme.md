@@ -19,6 +19,12 @@ Les fonctionnalités implémentées sont les suivantes :
     - [ ] anilist
     - [ ] mal
     - [ ] imdb
+  - [ ] récupération des mété-données manquante depuis TVDB
+    - [ ] l'horaire de sortie des épisodes
+    - [ ] tvRageId
+    - [ ] malIds
+    - [ ] aniListIds
+    - [ ] rating
 - [ ] Radarr:
   - [ ] recherche de films
   - [ ] récupération des informations d'un film
