@@ -18,25 +18,44 @@ REDIS_CACHE = redis.Redis(
     decode_responses=True,
 )
 
-# enum with values "sonarr", "radarr", "lidarr", "readarr"
-METADATA_SERVER_FOR = METADATA_SERVER_FOR.lower() if METADATA_SERVER_FOR else None
-if METADATA_SERVER_FOR not in ["sonarr", "radarr", "lidarr", "readarr"]:
-    raise ValueError("METADATA_SERVER_FOR must be one of 'sonarr', 'radarr', 'lidarr' or 'readarr'")
+METADATA_SERVER_FOR = METADATA_SERVER_FOR.lower().split(",") if METADATA_SERVER_FOR else None
 
-# check if all required are matched (TVDB_API_KEY for sonarr, TMDB_API_KEY for radarr, MUSICBRAINZ_API_KEY for lidarr)
-match METADATA_SERVER_FOR:
-    case "sonarr":
-        if not TVDB_API_KEY:
-            raise ValueError("TVDB_API_KEY environment variable is not set for Sonarr")
 
-    case "radarr":
-        if not TMDB_API_KEY:
-            raise ValueError("TMDB_API_KEY environment variable is not set for Radarr")
 
-    case "lidarr":
-        if not MUSICBRAINZ_API_KEY:
-            raise ValueError("MUSICBRAINZ_API_KEY environment variable is not set for Lidarr")
 
-    case _:
-        # METADATA_SERVER_FOR value not supported at this time
-        raise ValueError(METADATA_SERVER_FOR + " is not supported at this time. Supported values are 'sonarr', 'radarr', 'lidarr'")
+
+class ArrServer:
+    SONARR = "sonarr"
+    RADARR = "radarr"
+    LIDARR = "lidarr"
+    READARR = "readarr"
+
+    @staticmethod
+    def get_all():
+        return [ArrServer.SONARR, ArrServer.RADARR, ArrServer.LIDARR, ArrServer.READARR]
+
+    @staticmethod
+    def is_activated(s):
+        return s in METADATA_SERVER_FOR
+
+for server in METADATA_SERVER_FOR or []:
+    if server not in ArrServer.get_all():
+        raise ValueError(f"METADATA_SERVER_FOR values must be one of {', '.join(ArrServer.get_all())}. Got: {server}")
+
+    # check if all required are matched (TVDB_API_KEY for sonarr, TMDB_API_KEY for radarr, MUSICBRAINZ_API_KEY for lidarr)
+    match server:
+        case ArrServer.SONARR:
+            if not TVDB_API_KEY:
+                raise ValueError("TVDB_API_KEY environment variable is not set for Sonarr")
+
+        case ArrServer.RADARR:
+            if not TMDB_API_KEY:
+                raise ValueError("TMDB_API_KEY environment variable is not set for Radarr")
+
+        case ArrServer.LIDARR:
+            if not MUSICBRAINZ_API_KEY:
+                raise ValueError("MUSICBRAINZ_API_KEY environment variable is not set for Lidarr")
+
+        case _:
+            # METADATA_SERVER_FOR value not supported at this time
+            raise ValueError(server + " is not supported at this time. Supported values are 'sonarr', 'radarr', 'lidarr'")

@@ -122,7 +122,7 @@ class Episode:
 
         image_link = tvdb_obj.get('image', '')
 
-        if not image_link.startswith('http') and len(image_link) > 0:
+        if image_link and not image_link.startswith('http') and len(image_link) > 0:
             image_link = 'https://artworks.thetvdb.com' + image_link
 
         absolute_episode_number = tvdb_obj.get('absoluteNumber', None)

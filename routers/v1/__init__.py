@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from routers.v1.tvdb import tvdbRouter
+from env import ArrServer
 
 v1Router = APIRouter(prefix="/v1")
 
@@ -8,4 +8,9 @@ v1Router = APIRouter(prefix="/v1")
 async def root():
     return {"message": "Welcome to the v1 API"}
 
-v1Router.include_router(router=tvdbRouter)
+if ArrServer.is_activated(ArrServer.SONARR):
+    from routers.v1.tvdb import tvdbRouter
+
+    v1Router.include_router(router=tvdbRouter)
+
+    print("Sonarr metadata server is activated.")
