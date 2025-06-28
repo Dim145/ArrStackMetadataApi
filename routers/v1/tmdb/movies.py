@@ -1,4 +1,5 @@
 import json
+from datetime import timedelta
 
 from fastapi import APIRouter
 
@@ -6,9 +7,10 @@ import tmdbsimple as tmdb_client
 
 from env import LANGS_FALLBACK
 from models.skyhook.tmdb.movie import Movie
+from routers.cache import router_cache
 from utils import CACHE_TMDB_MOVIE_PREFIX, cache_or_exec, set_attrs_from_dict, CACHE_TMDB_RELEASE_DATES_SUFFIX, \
     CACHE_IMAGES_SUFFIX, CACHE_KEYWORDS_SUFFIX, CACHE_TRANSLATIONS_SUFFIX, CACHE_RECOMMENDATIONS_SUFFIX, \
-    CACHE_CREDITS_SUFFIX, CACHE_ALTERNATIVE_TITLES_SUFFIX, CACHE_VIDEOS_SUFFIX
+    CACHE_CREDITS_SUFFIX, CACHE_ALTERNATIVE_TITLES_SUFFIX, CACHE_VIDEOS_SUFFIX, CACHE_SERVER_RESPONSE_PREFIX
 
 movieRouter = APIRouter()
 
@@ -17,6 +19,7 @@ async def root():
     return {"message": "Welcome to the v1 movie API"}
 
 @movieRouter.get("/{tmdb_id}")
+@router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tmdb_movies_{tmdb_id}', expire=timedelta(hours=1))
 async def get_movie(tmdb_id: int):
     # use append_to_response=videos,release_dates,images,keywords,alternative_titles,translations,recommendations,credits,videos ?
 
