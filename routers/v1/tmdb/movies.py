@@ -7,7 +7,8 @@ import tmdbsimple as tmdb_client
 from env import LANGS_FALLBACK
 from models.skyhook.tmdb.movie import Movie
 from utils import CACHE_TMDB_MOVIE_PREFIX, cache_or_exec, set_attrs_from_dict, CACHE_TMDB_RELEASE_DATES_SUFFIX, \
-    CACHE_IMAGES_SUFFIX, CACHE_KEYWORDS_SUFFIX, CACHE_TRANSLATIONS_SUFFIX, CACHE_RECOMMENDATIONS_SUFFIX
+    CACHE_IMAGES_SUFFIX, CACHE_KEYWORDS_SUFFIX, CACHE_TRANSLATIONS_SUFFIX, CACHE_RECOMMENDATIONS_SUFFIX, \
+    CACHE_CREDITS_SUFFIX, CACHE_ALTERNATIVE_TITLES_SUFFIX, CACHE_VIDEOS_SUFFIX
 
 movieRouter = APIRouter()
 
@@ -17,6 +18,7 @@ async def root():
 
 @movieRouter.get("/{tmdb_id}")
 async def get_movie(tmdb_id: int):
+    # use append_to_response=videos,release_dates,images,keywords,alternative_titles,translations,recommendations,credits,videos ?
 
     cache_id = CACHE_TMDB_MOVIE_PREFIX + str(tmdb_id)
     movie = tmdb_client.Movies(tmdb_id)
@@ -42,7 +44,7 @@ async def get_movie(tmdb_id: int):
 
     movie.keywords = keywords_response.get('keywords', [])
 
-    cache_id = CACHE_TMDB_MOVIE_PREFIX + str(tmdb_id)
+    cache_id = CACHE_TMDB_MOVIE_PREFIX + str(tmdb_id) + CACHE_ALTERNATIVE_TITLES_SUFFIX
     alternative_titles_response = cache_or_exec(cache_id, lambda: movie.alternative_titles())
 
     movie.alternative_titles = alternative_titles_response.get('titles', [])
@@ -58,7 +60,16 @@ async def get_movie(tmdb_id: int):
     movie.recommendations = recommendations_response.get('results', [])
 
 
+    cache_id = CACHE_TMDB_MOVIE_PREFIX + str(tmdb_id) + CACHE_CREDITS_SUFFIX
+    credits_response = cache_or_exec(cache_id, lambda: movie.credits())
 
+    if not hasattr(movie, 'cast'):
+        set_attrs_from_dict(movie, credits_response)
+
+    cache_id = CACHE_TMDB_MOVIE_PREFIX + str(tmdb_id) + CACHE_VIDEOS_SUFFIX
+    videos_response = cache_or_exec(cache_id, lambda: movie.videos())
+
+    movie.videos = videos_response.get('results', [])
 
     response = Movie.from_tmdb_obj(movie)
 

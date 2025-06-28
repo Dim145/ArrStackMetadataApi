@@ -101,7 +101,7 @@ class AlternativeTitle:
         return AlternativeTitle(
             obj.get("title"),
             obj.get("type"),
-            obj.get("iso_639_1")
+            obj.get("iso_3166_1")
         )
 
 @dataclass
@@ -122,6 +122,21 @@ class Cast:
         _CreditId = str(obj.get("CreditId"))
         _Images = [Image.from_dict(y) for y in obj.get("Images")]
         return Cast(_Name, _Order, _Character, _TmdbId, _CreditId, _Images)
+
+
+    @staticmethod
+    def from_tmdb_obj(obj: Any) -> 'Cast':
+        return Cast(
+            obj.get("name"),
+            obj.get("order"),
+            obj.get("character"),
+            obj.get("id"),
+            obj.get("credit_id"),
+            [Image(
+                "Headshot",
+                TMDB_IMAGE_BASE_URL + obj.get("profile_path", "") if obj.get("profile_path") else None
+            )]
+        )
 
 @dataclass
 class Certification:
@@ -154,6 +169,21 @@ class Crew:
         _CreditId = str(obj.get("CreditId"))
         _Images = [Image.from_dict(y) for y in obj.get("Images")]
         return Crew(_Name, _Order, _Job, _Department, _TmdbId, _CreditId, _Images)
+
+    @staticmethod
+    def from_tmdb_obj(obj: Any, order: int) -> 'Crew':
+        return Crew(
+            obj.get("name"),
+            order,
+            obj.get("job"),
+            obj.get("department"),
+            obj.get("id"),
+            obj.get("credit_id"),
+            [Image(
+                "Headshot",
+                TMDB_IMAGE_BASE_URL + obj.get("profile_path", "") if obj.get("profile_path") else None
+            )]
+        )
 
 @dataclass
 class Credits:
@@ -285,10 +315,10 @@ class Movie:
     def from_tmdb_obj(obj: Movies) -> 'Movie':
 
         # get the release dates
-        premier = ""
-        in_cinema = ""
-        physical = ""
-        digital = ""
+        premier = None
+        in_cinema = None
+        physical = None
+        digital = None
 
         for lang in LANGS_FALLBACK:
             for release_date in obj.release_dates_by_country:
@@ -353,6 +383,21 @@ class Movie:
             None
         )
 
+        # build crédit object
+        credit = Credits(
+            [Cast.from_tmdb_obj(cast) for cast in obj.cast] if hasattr(obj, 'cast') else [],
+            [Crew.from_tmdb_obj(crew, ind) for ind, crew in enumerate(obj.crew)] if hasattr(obj, 'crew') else []
+        )
+
+        # extract youtube trailer from videos if available
+        youtube_trailer_id = ""
+
+        if obj.videos:
+            for video in list(obj.videos):
+                if video.get("type") == "Trailer" and video.get("site") == "YouTube":
+                    youtube_trailer_id = video.get("key")
+                    break
+
         return Movie(
             obj.id,
             obj.imdb_id,
@@ -360,10 +405,10 @@ class Movie:
             obj.overview,
             obj.original_title,
             obj.original_language,
-            obj.id, # use id as slug
+            str(obj.id), # use id as slug
             obj.runtime,
             obj.popularity,
-            obj.release_date.split("-")[0] if obj.release_date else 0,  # Year
+            int(obj.release_date.split("-")[0]) if obj.release_date else 0,  # Year
             premier,
             in_cinema,
             physical,
@@ -376,7 +421,13 @@ class Movie:
             [AlternativeTitle.from_tmdb_obj(title) for title in obj.alternative_titles] if hasattr(obj, 'alternative_titles') else [],
             [Translation.from_tmdb_obj(translation) for translation in obj.translations] if hasattr(obj, 'translations') else [],
             [Recommendation.from_tmdb_obj(rec) for rec in obj.recommendations] if hasattr(obj, 'recommendations') else [],
-            # credits ...
+            credit,
+            obj.production_companies[0].get("name") if hasattr(obj, 'production_companies') and obj.production_companies and obj.production_companies[0] else "",
+            youtube_trailer_id,
+            [], # certifications
+            obj.status,
+            None, # collection
+            obj.homepage
         )
 
 
