@@ -4,7 +4,16 @@ CACHE_TVDB_SHOW_PREFIX = 'tvdb_show_'
 CACHE_EPISODES_SUFFIX = '_episodes'
 CACHE_TVDB_SEARCH_PREFIX = 'tvdb_search_'
 
+CACHE_TMDB_MOVIE_PREFIX = 'tmdb_movie_'
+CACHE_TMDB_RELEASE_DATES_SUFFIX = '_release_dates'
+CACHE_IMAGES_SUFFIX = '_images'
+CACHE_KEYWORDS_SUFFIX = '_keywords'
+CACHE_TRANSLATIONS_SUFFIX = '_translations'
+CACHE_RECOMMENDATIONS_SUFFIX = '_recommendations'
+
 CACHE_SERVER_RESPONSE_PREFIX = 'cache_server_response_'
+
+TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original'
 
 def cache_or_exec(cache_id: str, func: callable, expire: timedelta = timedelta(hours=6)) -> any:
     """
@@ -46,3 +55,9 @@ def cache_or_exec(cache_id: str, func: callable, expire: timedelta = timedelta(h
     REDIS_CACHE.set(cache_id, cached_result, ex=expire)
 
     return result
+
+def set_attrs_from_dict(obj: object, data: dict) -> None:
+    if isinstance(data, dict):
+        for key in data.keys():
+            if not hasattr(obj, key) or not callable(getattr(obj, key)):
+                setattr(obj, key, data[key])

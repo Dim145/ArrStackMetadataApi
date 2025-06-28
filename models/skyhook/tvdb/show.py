@@ -223,7 +223,7 @@ class Show:
 
         for index, lang in enumerate(LANGS_FALLBACK):
             for translation in name_translations:
-                if translation.get('language') == lang and not (translation.get('isAlias') or False):
+                if translation.get('language') == lang.pt2t and not (translation.get('isAlias') or False):
                     name = translation.get('name')
                     break
 
@@ -238,7 +238,7 @@ class Show:
 
         for index, lang in enumerate(LANGS_FALLBACK):
             for translation in name_translations:
-                if translation.get('language') == lang and (translation.get('isAlias') or False):
+                if translation.get('language') == lang.pt2t and (translation.get('isAlias') or False):
                     alternative_titles.append({"title": translation.get('name')})
 
         # Extract overview from translations if available
@@ -248,7 +248,7 @@ class Show:
 
         for lang in LANGS_FALLBACK:
             for translation in overview_translations:
-                if translation.get('language') == lang:
+                if translation.get('language') == lang.pt2t:
                     overview = translation.get('overview')
                     break
             if overview != "":
@@ -335,7 +335,7 @@ class Show:
                 if art_obj.get('type') != cover_type.get('id'):
                     continue
 
-                if cover_type.get('includeText') is True and (not LANGS_FALLBACK.__contains__(art_obj.get('language'))):
+                if cover_type.get('includeText') is True and (not map(lambda x: x.pt2t, LANGS_FALLBACK).__contains__(art_obj.get('language'))):
                     continue
 
                 if cover_type.get('includeText') is None or cover_type.get('includeText') == art_obj.get('includesText'):
@@ -401,7 +401,7 @@ class Show:
             tvdb_obj.get('slug'),
             tvdb_obj.get('originalCountry'),
             tvdb_obj.get('originalLanguage'),
-            LANGS_FALLBACK[lang_fallback_index] if lang_fallback_index > -1 else tvdb_obj.get('originalLanguage'),
+            LANGS_FALLBACK[lang_fallback_index].pt2t if lang_fallback_index > -1 else tvdb_obj.get('originalLanguage'),
             first_aired,
             last_aired,
             None,  # tvRageId is not available in TVDB API

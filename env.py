@@ -1,6 +1,7 @@
 import os
 
 import redis
+from iso639 import Lang
 
 TVDB_API_KEY = os.getenv("TVDB_API_KEY")
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
@@ -8,7 +9,7 @@ MUSICBRAINZ_API_KEY = os.getenv("MUSICBRAINZ_API_KEY")
 
 METADATA_SERVER_FOR = os.getenv("METADATA_SERVER_FOR")
 
-LANGS_FALLBACK = os.getenv("LANGS_FALLBACK", "eng").lower().split(",")
+LANGS_FALLBACK = [Lang(lang) for lang in os.getenv("LANGS_FALLBACK", "eng").lower().split(",")]
 
 REDIS_CACHE = redis.Redis(
     host=os.getenv("REDIS_HOST", "localhost"),
