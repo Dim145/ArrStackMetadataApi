@@ -5,6 +5,7 @@ CACHE_EPISODES_SUFFIX = '_episodes'
 CACHE_TVDB_SEARCH_PREFIX = 'tvdb_search_'
 
 CACHE_TMDB_MOVIE_PREFIX = 'tmdb_movie_'
+CACHE_TMDB_COLLECTION_PREFIX = 'tmdb_collection_'
 CACHE_TMDB_RELEASE_DATES_SUFFIX = '_release_dates'
 CACHE_TMDB_CHANGED_PREFIX = 'tmdb_changed_'
 

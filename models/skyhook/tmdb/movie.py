@@ -4,6 +4,18 @@ from dataclasses import dataclass
 
 from tmdbsimple import Movies
 from env import LANGS_FALLBACK
+from models.skyhook.tmdb.alternative_title import AlternativeTitle
+from models.skyhook.tmdb.cast import Cast
+from models.skyhook.tmdb.certification import Certification
+from models.skyhook.tmdb.collection import Collection
+from models.skyhook.tmdb.crew import Crew
+from models.skyhook.tmdb.image import Image
+from models.skyhook.tmdb.rating import Rating
+from models.skyhook.tmdb.ratings.tmdb import Tmdb
+from models.skyhook.tmdb.recommendation import Recommendation
+from models.skyhook.tmdb.translation import Translation
+from models.skyhook.tmdb.movie_ratings import MovieRatings
+from models.skyhook.tmdb.credits import Credits
 from utils import TMDB_IMAGE_BASE_URL
 
 
@@ -14,237 +26,6 @@ class TmdbReleaseDateTypes:
     Digital = 4
     Physical = 5
     TV = 6
-
-@dataclass
-class Tmdb:
-    Count: int
-    Value: float
-    Type: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Tmdb':
-        _Count = int(obj.get("Count"))
-        _Value = float(obj.get("Value"))
-        _Type = str(obj.get("Type"))
-        return Tmdb(_Count, _Value, _Type)
-
-@dataclass
-class Trakt:
-    Count: int
-    Value: float
-    Type: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Trakt':
-        _Count = int(obj.get("Count"))
-        _Value = float(obj.get("Value"))
-        _Type = str(obj.get("Type"))
-        return Trakt(_Count, _Value, _Type)
-
-
-class TmdbRealeaseDateTypes:
-    Premiere = 1
-    Theatrical_limited = 2
-    Theatrical = 3
-    Digital = 4
-    Physical = 5
-    TV = 6
-
-
-@dataclass
-class Translation:
-    Title: str
-    Overview: str
-    Language: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Translation':
-        _Title = str(obj.get("Title"))
-        _Overview = str(obj.get("Overview"))
-        _Language = str(obj.get("Language"))
-        return Translation(_Title, _Overview, _Language)
-
-    @staticmethod
-    def from_tmdb_obj(obj: Any) -> 'Translation':
-        return Translation(
-            obj.get("data").get("title"),
-            obj.get("data").get("overview"),
-            obj.get("iso_639_1") + "-" + obj.get("iso_3166_1")
-        )
-
-@dataclass
-class Image:
-    CoverType: str
-    Url: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Image':
-        _CoverType = str(obj.get("CoverType"))
-        _Url = str(obj.get("Url"))
-        return Image(_CoverType, _Url)
-
-@dataclass
-class AlternativeTitle:
-    Title: str
-    Type: str
-    Language: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'AlternativeTitle':
-        _Title = str(obj.get("Title"))
-        _Type = str(obj.get("Type"))
-        _Language = str(obj.get("Language"))
-        return AlternativeTitle(_Title, _Type, _Language)
-
-    @staticmethod
-    def from_tmdb_obj(obj: Any) -> 'AlternativeTitle':
-        return AlternativeTitle(
-            obj.get("title"),
-            obj.get("type"),
-            obj.get("iso_3166_1")
-        )
-
-@dataclass
-class Cast:
-    Name: str
-    Order: int
-    Character: str
-    TmdbId: int
-    CreditId: str
-    Images: List[Image]
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Cast':
-        _Name = str(obj.get("Name"))
-        _Order = int(obj.get("Order"))
-        _Character = str(obj.get("Character"))
-        _TmdbId = int(obj.get("TmdbId"))
-        _CreditId = str(obj.get("CreditId"))
-        _Images = [Image.from_dict(y) for y in obj.get("Images")]
-        return Cast(_Name, _Order, _Character, _TmdbId, _CreditId, _Images)
-
-
-    @staticmethod
-    def from_tmdb_obj(obj: Any) -> 'Cast':
-        return Cast(
-            obj.get("name"),
-            obj.get("order"),
-            obj.get("character"),
-            obj.get("id"),
-            obj.get("credit_id"),
-            [Image(
-                "Headshot",
-                TMDB_IMAGE_BASE_URL + obj.get("profile_path", "") if obj.get("profile_path") else None
-            )]
-        )
-
-@dataclass
-class Certification:
-    Country: str
-    Certification: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Certification':
-        _Country = str(obj.get("Country"))
-        _Certification = str(obj.get("Certification"))
-        return Certification(_Country, _Certification)
-
-@dataclass
-class Crew:
-    Name: str
-    Order: int
-    Job: str
-    Department: str
-    TmdbId: int
-    CreditId: str
-    Images: List[Image]
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Crew':
-        _Name = str(obj.get("Name"))
-        _Order = int(obj.get("Order"))
-        _Job = str(obj.get("Job"))
-        _Department = str(obj.get("Department"))
-        _TmdbId = int(obj.get("TmdbId"))
-        _CreditId = str(obj.get("CreditId"))
-        _Images = [Image.from_dict(y) for y in obj.get("Images")]
-        return Crew(_Name, _Order, _Job, _Department, _TmdbId, _CreditId, _Images)
-
-    @staticmethod
-    def from_tmdb_obj(obj: Any, order: int) -> 'Crew':
-        return Crew(
-            obj.get("name"),
-            order,
-            obj.get("job"),
-            obj.get("department"),
-            obj.get("id"),
-            obj.get("credit_id"),
-            [Image(
-                "Headshot",
-                TMDB_IMAGE_BASE_URL + obj.get("profile_path", "") if obj.get("profile_path") else None
-            )]
-        )
-
-@dataclass
-class Credits:
-    Cast: List[Cast]
-    Crew: List[Crew]
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Credits':
-        _Cast = [Cast.from_dict(y) for y in obj.get("Cast")]
-        _Crew = [Crew.from_dict(y) for y in obj.get("Crew")]
-        return Credits(_Cast, _Crew)
-
-@dataclass
-class MovieRatings:
-    Tmdb: Tmdb
-    Imdb: str
-    Metacritic: str
-    RottenTomatoes: str
-    Trakt: Trakt
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'MovieRatings':
-        _Tmdb = Tmdb.from_dict(obj.get("Tmdb"))
-        _Imdb = str(obj.get("Imdb"))
-        _Metacritic = str(obj.get("Metacritic"))
-        _RottenTomatoes = str(obj.get("RottenTomatoes"))
-        _Trakt = Trakt.from_dict(obj.get("Trakt"))
-        return MovieRatings(_Tmdb, _Imdb, _Metacritic, _RottenTomatoes, _Trakt)
-
-@dataclass
-class Rating:
-    Count: int
-    Value: float
-    Origin: str
-    Type: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Rating':
-        _Count = int(obj.get("Count"))
-        _Value = float(obj.get("Value"))
-        _Origin = str(obj.get("Origin"))
-        _Type = str(obj.get("Type"))
-        return Rating(_Count, _Value, _Origin, _Type)
-
-@dataclass
-class Recommendation:
-    TmdbId: int
-    Title: str
-
-    @staticmethod
-    def from_dict(obj: Any) -> 'Recommendation':
-        _TmdbId = int(obj.get("TmdbId"))
-        _Title = str(obj.get("Title"))
-        return Recommendation(_TmdbId, _Title)
-
-    @staticmethod
-    def from_tmdb_obj(obj: Any) -> 'Recommendation':
-        return Recommendation(
-            obj.get("id"),
-            obj.get("title")
-        )
 
 @dataclass
 class Movie:
@@ -275,7 +56,7 @@ class Movie:
     YoutubeTrailerId: str
     Certifications: List[Certification]
     Status: str
-    Collection: str
+    Collection: Collection
     Homepage: str
 
     @staticmethod
@@ -429,6 +210,3 @@ class Movie:
             None, # collection
             obj.homepage
         )
-
-
-

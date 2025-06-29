@@ -4,7 +4,7 @@ from datetime import timedelta, datetime
 from fastapi import APIRouter
 
 import tmdbsimple as tmdb_client
-from tmdbsimple import Changes
+from tmdbsimple import Changes, Collections
 
 from env import LANGS_FALLBACK
 from models.skyhook.tmdb.movie import Movie
@@ -12,7 +12,7 @@ from routers.cache import router_cache
 from utils import CACHE_TMDB_MOVIE_PREFIX, cache_or_exec, set_attrs_from_dict, CACHE_TMDB_RELEASE_DATES_SUFFIX, \
     CACHE_IMAGES_SUFFIX, CACHE_KEYWORDS_SUFFIX, CACHE_TRANSLATIONS_SUFFIX, CACHE_RECOMMENDATIONS_SUFFIX, \
     CACHE_CREDITS_SUFFIX, CACHE_ALTERNATIVE_TITLES_SUFFIX, CACHE_VIDEOS_SUFFIX, CACHE_SERVER_RESPONSE_PREFIX, \
-    CACHE_TMDB_CHANGED_PREFIX
+    CACHE_TMDB_CHANGED_PREFIX, CACHE_TMDB_COLLECTION_PREFIX
 
 movieRouter = APIRouter()
 
@@ -47,6 +47,21 @@ def get_changed(since: datetime = None):
 
         since = since + timedelta(days=14)
 
+
+    return response
+
+@movieRouter.get("/collection/{tmdb_id}")
+async def get_collection(tmdb_id: str):
+
+    collection = Collections(tmdb_id)
+
+    cache_id = CACHE_TMDB_COLLECTION_PREFIX + str(tmdb_id)
+    tmdb_response = cache_or_exec(cache_id, lambda: collection.info(language=LANGS_FALLBACK[0].pt1))
+
+    if not hasattr(collection, 'name'):
+        set_attrs_from_dict(collection, tmdb_response)
+
+    response = None
 
     return response
 
