@@ -6,6 +6,8 @@ CACHE_TVDB_SEARCH_PREFIX = 'tvdb_search_'
 
 CACHE_TMDB_MOVIE_PREFIX = 'tmdb_movie_'
 CACHE_TMDB_RELEASE_DATES_SUFFIX = '_release_dates'
+CACHE_TMDB_CHANGED_PREFIX = 'tmdb_changed_'
+
 CACHE_IMAGES_SUFFIX = '_images'
 CACHE_KEYWORDS_SUFFIX = '_keywords'
 CACHE_TRANSLATIONS_SUFFIX = '_translations'
