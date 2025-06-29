@@ -61,6 +61,7 @@ async def get_collection(tmdb_id: str):
     if not hasattr(collection, 'name'):
         set_attrs_from_dict(collection, tmdb_response)
 
+    # todo : add collection parsing & convert
     response = None
 
     return response
