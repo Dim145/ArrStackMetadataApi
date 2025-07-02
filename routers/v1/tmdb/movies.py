@@ -75,13 +75,6 @@ async def get_collection(tmdb_id: str):
 
     response = Collection.from_tmdb_obj(collection)
 
-    for part in collection.parts:
-        movie = await get_movie(part.get("id"))
-
-        response.Parts.append(movie)
-
-    #  optimize response  by executing each get_movie call in parallel and waiting for all to finish
-    #  if you want to use asyncio.gather, you can do it like this:
     import asyncio
     tasks = [get_movie(part.get("id")) for part in collection.parts]
     movies = await asyncio.gather(*tasks)
