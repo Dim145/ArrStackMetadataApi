@@ -362,10 +362,8 @@ class Show:
 
             for cover_type in COVER_TYPES:
                 season_artwork = None
-                print(cover_type)
 
                 for art_obj in season_artworks:
-                    print(f"Checking artwork {art_obj.get('type')} against cover type {cover_type.get('id')}")
                     if art_obj.get('type') == cover_type.get('id'):
                         season_artwork = art_obj
                         break
