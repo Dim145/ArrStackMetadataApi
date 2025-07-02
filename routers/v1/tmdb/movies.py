@@ -7,6 +7,7 @@ import tmdbsimple as tmdb_client
 from tmdbsimple import Changes, Collections
 
 from env import LANGS_FALLBACK
+from models.skyhook.tmdb.collection import Collection
 from models.skyhook.tmdb.movie import Movie
 from routers.cache import router_cache
 from utils import CACHE_TMDB_MOVIE_PREFIX, cache_or_exec, set_attrs_from_dict, CACHE_TMDB_RELEASE_DATES_SUFFIX, \
@@ -61,8 +62,31 @@ async def get_collection(tmdb_id: str):
     if not hasattr(collection, 'name'):
         set_attrs_from_dict(collection, tmdb_response)
 
-    # todo : add collection parsing & convert
-    response = None
+    cache_id = CACHE_TMDB_COLLECTION_PREFIX + str(tmdb_id) + CACHE_IMAGES_SUFFIX
+    images_response = cache_or_exec(cache_id, lambda: collection.images(include_image_language=map(lambda x: x.pt1, LANGS_FALLBACK)))
+
+    if not hasattr(collection, 'backdrops'):
+        set_attrs_from_dict(collection, images_response)
+
+    cache_id = CACHE_TMDB_COLLECTION_PREFIX + str(tmdb_id) + CACHE_TRANSLATIONS_SUFFIX
+    translations_response = cache_or_exec(cache_id, lambda: collection.translations())
+
+    collection.translations = translations_response.get('translations', [])
+
+    response = Collection.from_tmdb_obj(collection)
+
+    for part in collection.parts:
+        movie = await get_movie(part.get("id"))
+
+        response.Parts.append(movie)
+
+    #  optimize response  by executing each get_movie call in parallel and waiting for all to finish
+    #  if you want to use asyncio.gather, you can do it like this:
+    import asyncio
+    tasks = [get_movie(part.get("id")) for part in collection.parts]
+    movies = await asyncio.gather(*tasks)
+    response.Parts = movies
+
 
     return response
 

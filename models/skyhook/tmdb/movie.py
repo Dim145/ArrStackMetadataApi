@@ -7,7 +7,6 @@ from env import LANGS_FALLBACK
 from models.skyhook.tmdb.alternative_title import AlternativeTitle
 from models.skyhook.tmdb.cast import Cast
 from models.skyhook.tmdb.certification import Certification
-from models.skyhook.tmdb.collection import Collection
 from models.skyhook.tmdb.crew import Crew
 from models.skyhook.tmdb.image import Image
 from models.skyhook.tmdb.rating import Rating
@@ -18,7 +17,6 @@ from models.skyhook.tmdb.movie_ratings import MovieRatings
 from models.skyhook.tmdb.credits import Credits
 from utils import TMDB_IMAGE_BASE_URL
 
-
 class TmdbReleaseDateTypes:
     Premiere = 1
     TheatricalLimited = 2
@@ -26,6 +24,13 @@ class TmdbReleaseDateTypes:
     Digital = 4
     Physical = 5
     TV = 6
+
+
+class Collection:
+    def __class__(self):
+        from models.skyhook.tmdb.collection import Collection
+        return Collection
+
 
 @dataclass
 class Movie:
