@@ -9,6 +9,7 @@ CACHE_TMDB_COLLECTION_PREFIX = 'tmdb_collection_'
 CACHE_TMDB_RELEASE_DATES_SUFFIX = '_release_dates'
 CACHE_TMDB_CHANGED_PREFIX = 'tmdb_changed_'
 CACHE_TMDB_POPULAR_PREFIX = 'tmdb_popular_'
+CACHE_TMDB_SEARCH_PREFIX = 'tmdb_search_'
 
 CACHE_IMAGES_SUFFIX = '_images'
 CACHE_KEYWORDS_SUFFIX = '_keywords'
