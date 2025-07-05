@@ -32,3 +32,8 @@ async def get_popular_lists():
 
     return results
 
+@listsRouter.get("/trending")
+@router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tmdb_trending', expire=timedelta(days=1))
+async def get_trending_lists():
+    # trending is not an endpoint of tmdb, and in skyhook, it's very similar to popular...
+    return get_popular_lists()
