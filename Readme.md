@@ -25,10 +25,17 @@ Les fonctionnalités implémentées sont les suivantes :
     - [ ] malIds
     - [ ] aniListIds
     - [ ] rating
-- [ ] Radarr:
-  - [ ] recherche de films
-  - [ ] récupération des informations d'un film
-  - ... d'autres endpoints, je n'ai pas encore fait le tour
+- [x] Radarr:
+  - [x] recherche de films
+  - [x] récupération des informations d'un film
+  - [x] récupération des informations d'une collection
+  - [x] récupération des films popular (et "trending")
+  - [x] récupération d'un film par son id imdb
+  - [x] récupération des informations de plusieurs films par leurs id
+  - [ ] optimisé les recherches pour ne pas faire de requêtes inutiles
+  - [ ] récupération de méta-données manquantes depuis TMDB
+    - [ ] certifications ?
+    - [ ] other ratings 
 - [ ] Lidarr:
   - [ ] recherche d'artistes
   - [ ] récupération des informations d'un artiste
@@ -39,13 +46,13 @@ Les fonctionnalités implémentées sont les suivantes :
   - ... d'autres endpoints, je n'ai pas encore fait le tour
 
 # Prérequis
-Pour faire fonctionner ce projet, il est nécéssaire de généré une clés api chez les différentes sources de m
-étadonnées, voici les liens pour les générer :
+Pour faire fonctionner ce projet, il est nécéssaire de généré une clés api chez les différentes sources de 
+métadonnées, voici les liens pour les générer :
 - [The TVDB](https://thetvdb.com/api-information)
 - [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction)
 - [MusicBrainz](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2)
 
-Pour le moment, **seul TVDB est implémentée**, mais les autres sources seront implémentées lors de l'avancement du projet.
+Pour le moment, **MusicBrainz**, n'est pas encore implémenté, mais il est prévu de l'être.
 
 # génération du certificat
 Pour que le projet fonctionne, il est nécessaire de générer un certificat auto-signé, vous pouvez le faire avec la commande suivante :
@@ -55,7 +62,7 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout cert.key -out cert.
 ```
 
 # Installation
-Le projet est prévus pour tourné dans un container docker, il est donc nécessaire d'avoir docker et docker-compose d'installé.
+Le projet est prévus pour fonctionner dans un container docker, il est donc nécessaire d'avoir docker et docker-compose d'installé.
 
 Redis est requis pour le fonctionnement de ce projet, si vous n'avez pas de redis d'installé, vous pouvez le faire via docker-compose.
 
