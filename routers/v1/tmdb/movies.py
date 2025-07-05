@@ -90,6 +90,8 @@ async def get_collection(tmdb_id: str):
 async def get_movie(tmdb_id: int):
     # use append_to_response=videos,release_dates,images,keywords,alternative_titles,translations,recommendations,credits,videos ?
 
+    # todo : optimize this method with async calls
+
     cache_id = CACHE_TMDB_MOVIE_PREFIX + str(tmdb_id)
     movie = tmdb_client.Movies(tmdb_id)
     tmdb_response = cache_or_exec(cache_id, lambda: movie.info(language=LANGS_FALLBACK[0].pt1))
