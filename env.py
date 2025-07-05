@@ -11,6 +11,8 @@ METADATA_SERVER_FOR = os.getenv("METADATA_SERVER_FOR")
 
 LANGS_FALLBACK = [Lang(lang) for lang in os.getenv("LANGS_FALLBACK", "eng").lower().split(",")]
 
+INCLUDE_ADULT_CONTENT = os.getenv("INCLUDE_ADULT_CONTENT", "false").lower() in ("true", "1", "yes")
+
 REDIS_CACHE = redis.Redis(
     host=os.getenv("REDIS_HOST", "localhost"),
     port=int(os.getenv("REDIS_PORT", 6379)),
