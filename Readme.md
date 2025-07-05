@@ -2,7 +2,8 @@
 La stack arr (radarr, sonarr et lidarr) utilisent tous une api externe, non open-source et non-self-hostable
 pour communiqué avec les APIs de  leurs source de metadonnées (tvdb, tmdb et musicbrainz).
 
-Malgré le fait de self-hosté ces projets arr, ils restent dépendant de ces APIs externes. Ces dernières peuvent aussi connaitres et enregistré de ce fait les données  sur  vos instances.
+Malgré le fait de self-hosté ces projets arr, ils restent dépendant de ces APIs externes. Ces dernières peuvent aussi connaitres et enregistré de ce fait les données sur vos instances.  
+De plus, ce proxy peut avoir des limitations ou tous simplement ne pas être disponible (comme celui de lidarr depuis plusieurs mois).
 
 Pour éviter cela, j'ai créé ce projet qui permet de self-hosté un équivalent de ces proxies en contactant directement les sources de données.
 
