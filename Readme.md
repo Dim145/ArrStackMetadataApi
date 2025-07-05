@@ -1,11 +1,11 @@
 # Objectif
 La stack arr (radarr, sonarr et lidarr) utilisent tous une api externe, non open-source et non-self-hostable
-pour communiqué avec les APIs de  leurs source de metadonnées (tvdb, tmdb et musicbrainz).
+pour communiqué avec les APIs de leurs sources de metadonnées (tvdb, tmdb et musicbrainz).
 
-Malgré le fait de self-hosté ces projets arr, ils restent dépendant de ces APIs externes. Ces dernières peuvent aussi connaitres et enregistré de ce fait les données sur vos instances.  
+Malgré le fait de self hosté ces projets arr, ils restent dépendant de ces APIs externes. Ces dernières peuvent aussi connaitres et enregistré de ce fait les données sur vos instances.  
 De plus, ce proxy peut avoir des limitations ou tous simplement ne pas être disponible (comme celui de lidarr depuis plusieurs mois).
 
-Pour éviter cela, j'ai créé ce projet qui permet de self-hosté un équivalent de ces proxies en contactant directement les sources de données.
+Pour éviter cela, j'ai créé ce projet qui permet de self hosté un équivalent de ces proxies en contactant directement les sources de données.
 
 # avancement
 Le projet est en cours de dévelopment, il peut (et dois surement) être encore instable.
@@ -14,7 +14,7 @@ Les fonctionnalités implémentées sont les suivantes :
 - [x] Sonarr:
   - [x] recherche de séries
   - [x] récupération des informations d'une série
-  - [ ] recherche de series  directement depuis une source de métadonnées
+  - [ ] recherche de series directement depuis une source de métadonnées
     - [x] tvdb
     - [ ] tmdb
     - [ ] anilist
@@ -47,7 +47,7 @@ Les fonctionnalités implémentées sont les suivantes :
   - ... d'autres endpoints, je n'ai pas encore fait le tour
 
 # Prérequis
-Pour faire fonctionner ce projet, il est nécéssaire de généré une clés api chez les différentes sources de 
+Pour faire fonctionner ce projet, il est nécessaire de générer une clé api chez les différentes sources de 
 métadonnées, voici les liens pour les générer :
 - [The TVDB](https://thetvdb.com/api-information)
 - [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction)
@@ -117,7 +117,7 @@ networks:
 ```
 
 # Configuration
-Pour que ce proxy soit utilisé par le projet  arr, il va falloir changer un peu son yaml:
+Pour que ce proxy soit utilisé par le projet  arr, il va falloir changer un peu son yaml :
 
 ## ajouter un proxy avec des certificats auto-signés au stack du proxy
 ### docker-compose du reverse proxy
@@ -132,7 +132,7 @@ reverse-proxy:
       - ./docker-data/certs:/certs # emplacement des certificats auto-signés
 ```
 ### fichier metadata-server.conf  
-Fichier  à placer dans le dossier `/data/reverse-proxy` (ou l'emplacement que vous avez choisi dans le docker-compose du reverse proxy)
+Fichier à placer dans le dossier `/data/reverse-proxy` (ou l'emplacement que vous avez choisi dans le docker-compose du reverse proxy)
 ```
 server {
   listen 443 ssl;
@@ -153,7 +153,7 @@ server {
 ```
 
 ## ajouter les entrée suivantes dans le fichier docker-compose du projet arr
-exemple avec sonarr
+Exemple avec sonarr
 
 ### docker-compose de sonarr à modifier
 ```yaml
