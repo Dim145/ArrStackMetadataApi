@@ -1,5 +1,6 @@
-import json
+import asyncio
 from datetime import timedelta, datetime
+from typing import List
 
 from fastapi import APIRouter
 
@@ -22,6 +23,7 @@ async def root():
     return {"message": "Welcome to the v1 movie API"}
 
 @movieRouter.get("/changed")
+@router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tmdb_changed_{since}', expire=timedelta(hours=1))
 def get_changed(since: datetime = None):
     changes = Changes()
 
@@ -52,6 +54,7 @@ def get_changed(since: datetime = None):
     return response
 
 @movieRouter.get("/collection/{tmdb_id}")
+@router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tmdb_collection_{tmdb_id}', expire=timedelta(hours=1))
 async def get_collection(tmdb_id: str):
 
     collection = Collections(tmdb_id)
@@ -75,7 +78,6 @@ async def get_collection(tmdb_id: str):
 
     response = Collection.from_tmdb_obj(collection)
 
-    import asyncio
     tasks = [get_movie(part.get("id")) for part in collection.parts]
     movies = await asyncio.gather(*tasks)
     response.Parts = movies
@@ -142,3 +144,29 @@ async def get_movie(tmdb_id: int):
     response = Movie.from_tmdb_obj(movie)
 
     return response
+
+@movieRouter.post("/bulk")
+@router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tmdb_movies_bulk_{tmdb_ids}', expire=timedelta(hours=1))
+async def get_movie_bulk(tmdb_ids: List[int]):
+
+    tasks = [get_movie(tmdb_id) for tmdb_id in tmdb_ids]
+    movie_responses = await asyncio.gather(*tasks)
+
+    return movie_responses
+
+@movieRouter.get("/imdb/{imdb_id}")
+@router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tmdb_imdb_{imdb_id}', expire=timedelta(hours=1))
+async def get_movie_by_imdb(imdb_id: str):
+
+    find = tmdb_client.Find(imdb_id)
+
+    cache_id = CACHE_TMDB_MOVIE_PREFIX + "imdb_" + imdb_id
+    movie = cache_or_exec(cache_id, lambda: find.info(external_source='imdb_id'), expire=timedelta(days=14))
+
+    if not hasattr(find, 'movie_results'):
+        set_attrs_from_dict(find, movie)
+
+    tasks = [get_movie(movie_result.get("id")) for movie_result in find.movie_results]
+    movie_responses = await asyncio.gather(*tasks)
+
+    return movie_responses
