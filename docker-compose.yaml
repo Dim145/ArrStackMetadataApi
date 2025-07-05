@@ -12,6 +12,7 @@ services:
       METADATA_SERVER_FOR: "sonarr"
       REDIS_HOST: redis
       LANGS_FALLBACK: fra,eng
+      INCLUDE_ADULT_CONTENT: false
 
 
   redis:

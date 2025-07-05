@@ -76,9 +76,11 @@ services:
       - "8080:80"
     environment:
       TVDB_API_KEY: "xxx"
-      METADATA_SERVER_FOR: "sonarr"
+      TMDB_API_KEY: "xxx"
+      METADATA_SERVER_FOR: "sonarr,radarr"
       REDIS_HOST: redis
       LANGS_FALLBACK: fra,eng
+      INCLUDE_ADULT_CONTENT: false
     networks:
       - internal
 
