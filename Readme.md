@@ -7,7 +7,7 @@ De plus, ce proxy peut avoir des limitations ou tous simplement ne pas être dis
 
 Pour éviter cela, j'ai créé ce projet qui permet de self hosté un équivalent de ces proxies en contactant directement les sources de données.
 
-# avancement
+# Avancement
 Le projet est en cours de dévelopment, il peut (et dois surement) être encore instable.
 
 Les fonctionnalités implémentées sont les suivantes :
@@ -55,7 +55,7 @@ métadonnées, voici les liens pour les générer :
 
 Pour le moment, **MusicBrainz**, n'est pas encore implémenté, mais il est prévu de l'être.
 
-# génération du certificat
+# Génération du certificat
 Pour que le projet fonctionne, il est nécessaire de générer un certificat auto-signé, vous pouvez le faire avec la commande suivante :
 
 ```bash
@@ -117,9 +117,9 @@ networks:
 ```
 
 # Configuration
-Pour que ce proxy soit utilisé par le projet  arr, il va falloir changer un peu son yaml :
+Pour que ce proxy soit utilisé par le projet arr, il va falloir changer un peu son yaml :
 
-## ajouter un proxy avec des certificats auto-signés au stack du proxy
+## Ajouter un proxy avec des certificats auto-signés au stack du proxy
 ### docker-compose du reverse proxy
 ```yaml
 reverse-proxy:
@@ -131,7 +131,7 @@ reverse-proxy:
       - ./docker-data/reverse-proxy:/etc/nginx/conf.d/ # emplacement du fichier de conf nginx (ci-dessous)
       - ./docker-data/certs:/certs # emplacement des certificats auto-signés
 ```
-### fichier metadata-server.conf  
+### Fichier metadata-server.conf  
 Fichier à placer dans le dossier `/data/reverse-proxy` (ou l'emplacement que vous avez choisi dans le docker-compose du reverse proxy)
 ```
 server {
@@ -152,7 +152,7 @@ server {
 }
 ```
 
-## ajouter les entrée suivantes dans le fichier docker-compose du projet arr
+## Ajouter les entrées suivantes dans le fichier docker-compose du projet arr
 Exemple avec sonarr
 
 ### docker-compose de sonarr à modifier
@@ -169,7 +169,7 @@ Exemple avec sonarr
       - "skyhook.sonarr.tv:172.173.10.100" # l'ip du reverse proxy
 ```
 
-### script update-ca.sh
+### Script update-ca.sh
 Le certificat auto-signé doit être ajouté aux certificats de confiance du container, pour cela, il faut ajouter un script qui sera exécuté au démarrage du container sonarr.
 ```bash
 #!/bin/sh
