@@ -1,5 +1,5 @@
 from datetime import timedelta
-
+from time import sleep
 CACHE_TVDB_SHOW_PREFIX = 'tvdb_show_'
 CACHE_EPISODES_SUFFIX = '_episodes'
 CACHE_TVDB_SEARCH_PREFIX = 'tvdb_search_'
@@ -10,6 +10,8 @@ CACHE_TMDB_RELEASE_DATES_SUFFIX = '_release_dates'
 CACHE_TMDB_CHANGED_PREFIX = 'tmdb_changed_'
 CACHE_TMDB_POPULAR_PREFIX = 'tmdb_popular_'
 CACHE_TMDB_SEARCH_PREFIX = 'tmdb_search_'
+
+CACHE_MUSICBRAINZ_ALBUM_PREFIX = 'musicbrainz_album_'
 
 CACHE_IMAGES_SUFFIX = '_images'
 CACHE_KEYWORDS_SUFFIX = '_keywords'
@@ -22,6 +24,22 @@ CACHE_VIDEOS_SUFFIX = '_videos'
 CACHE_SERVER_RESPONSE_PREFIX = 'cache_server_response_'
 
 TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original'
+
+def exec_and_wait(func: callable, seconds: int = 1) -> any:
+    """
+    Execute a function and wait for a specified number of seconds.
+
+    Parameters:
+    - func: Function to execute.
+    - seconds: Number of seconds to wait after execution (default is 1 second).
+
+    Returns:
+    The result of the function call.
+    """
+
+    result = func()
+    sleep(seconds)
+    return result
 
 def cache_or_exec(cache_id: str, func: callable, expire: timedelta = timedelta(hours=6)) -> any:
     """

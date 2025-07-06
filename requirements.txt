@@ -7,3 +7,4 @@ setuptools~=80.9.0
 jsonpickle~=4.1.1
 tmdbsimple~=2.9.1
 iso639-lang~=2.6.1
+musicbrainzngs~=0.7.1
