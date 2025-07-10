@@ -5,11 +5,14 @@ CACHE_EPISODES_SUFFIX = '_episodes'
 CACHE_TVDB_SEARCH_PREFIX = 'tvdb_search_'
 
 CACHE_TMDB_MOVIE_PREFIX = 'tmdb_movie_'
+CACHE_TMDB_TV_PREFIX = 'tmdb_tv_'
 CACHE_TMDB_COLLECTION_PREFIX = 'tmdb_collection_'
 CACHE_TMDB_RELEASE_DATES_SUFFIX = '_release_dates'
 CACHE_TMDB_CHANGED_PREFIX = 'tmdb_changed_'
 CACHE_TMDB_POPULAR_PREFIX = 'tmdb_popular_'
 CACHE_TMDB_SEARCH_PREFIX = 'tmdb_search_'
+CACHE_TMDB_SEARCH_TV_PREFIX = 'tmdb_search_tv_'
+CACHE_TMDB_EPISODE_GROUP_PREFIX = 'tmdb_episode_group_'
 
 CACHE_MUSICBRAINZ_ALBUM_PREFIX = 'musicbrainz_album_'
 

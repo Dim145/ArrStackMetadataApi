@@ -423,3 +423,14 @@ class Show:
             seasons,
             episodes
         )
+
+    @staticmethod
+    def from_tmdb_obj(tmdb_obj: dict) -> 'Show':
+        """
+        Create a Show object from a TMDB object.
+        """
+        # Extract the name from translations if available
+
+        return Show(
+
+        )
