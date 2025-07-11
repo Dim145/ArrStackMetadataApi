@@ -3,7 +3,7 @@ from typing import List
 from typing import Any
 from dataclasses import dataclass
 
-from env import LANGS_FALLBACK
+from env import LANGS_FALLBACK, USE_TMDB_FOR_SONARR
 
 CONTENT_RATING_ORDER = ['fra', 'usa']
 
@@ -432,5 +432,8 @@ class Show:
         # Extract the name from translations if available
 
         return Show(
-
+            tmdb_obj.get('id') if USE_TMDB_FOR_SONARR else tmdb_obj.get('tvdb_id'),
+            tmdb_obj.get('name'),
+            tmdb_obj.get('overview'),
+            
         )
