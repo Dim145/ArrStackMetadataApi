@@ -15,7 +15,6 @@ showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 async def get_shows(tvdb_id: int):
     if USE_TMDB_FOR_SONARR:
         import tmdbsimple as tmdb_client
-        print("tmdb")
 
         cache_id = CACHE_TMDB_TV_PREFIX + str(tvdb_id)
         tv = tmdb_client.TV(tvdb_id)
