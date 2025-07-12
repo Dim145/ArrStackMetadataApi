@@ -1,11 +1,15 @@
 from datetime import datetime
+from statistics import mean
 from typing import List
 from typing import Any
 from dataclasses import dataclass
 
-from env import LANGS_FALLBACK, USE_TMDB_FOR_SONARR
+from iso3166 import countries
 
-CONTENT_RATING_ORDER = ['fra', 'usa']
+from env import LANGS_FALLBACK, USE_TMDB_FOR_SONARR
+from utils import TMDB_IMAGE_BASE_URL
+
+CONTENT_RATING_ORDER = [countries.get(x) for x in ['fra', 'usa']]
 
 COVER_TYPES = [
     {'name': 'Banner', 'id': 1, 'includeText': None},
@@ -304,7 +308,7 @@ class Show:
 
         for rating in CONTENT_RATING_ORDER:
             for content_rating_obj in content_ratings:
-                if content_rating_obj.get('country') == rating:
+                if content_rating_obj.get('country') == rating.alpha3.lower():
                     content_rating = content_rating_obj.get('name', 'Unknown')
                     break
             if content_rating != "Unknown":
@@ -429,11 +433,202 @@ class Show:
         """
         Create a Show object from a TMDB object.
         """
+
+        lang_fallback_index = -1
+
         # Extract the name from translations if available
+        translations = tmdb_obj.get('translations', {}).get('translations', [])
+
+        name = ""
+        overview = ""
+
+        for index, lang in enumerate(LANGS_FALLBACK):
+            for translation in translations:
+                if translation.get('iso_639_1') == lang.pt1:
+                    data = translation.get('data', {})
+
+                    name = data.get('name')
+                    overview = data.get('overview', '')
+                    break
+
+            if name != "":
+                lang_fallback_index = index
+                break
+
+        if name == "":
+            name = tmdb_obj.get('name')
+
+        if overview == "":
+            overview = tmdb_obj.get('overview')
+
+        # external ids
+        tvrage_id, tvmaze_id, imdb_id, tvdb_id = None, None, None, None
+        external_ids = tmdb_obj.get('external_ids', {})
+
+        if external_ids:
+            tvrage_id = external_ids.get('tvrage_id')
+            tvmaze_id = external_ids.get('tv_maze_id')
+            imdb_id = external_ids.get('imdb_id')
+            tvdb_id = external_ids.get('tvdb_id')
+
+        mal_ids = []
+        anilist_ids = []
+
+        # calculate last change date
+        last_change = datetime.min
+
+        for changes_cat in tmdb_obj.get('changes', {}).get('changes', []):
+            for change_item in changes_cat.get('items', []):
+                change_date = datetime.strptime(change_item.get('time', ''), '%Y-%m-%d %H:%M:%S Z')
+                if change_date > last_change:
+                    last_change = change_date
+
+        # calculate average episode run time
+        episode_run_time = mean(tmdb_obj.get('episode_run_time', [-1]))
+
+        # networks infos
+        origin_country = tmdb_obj.get('origin_country', ['Unknown'])[0]
+        original_networks = tmdb_obj.get('networks', [])
+        original_network = 'Unknown'
+
+        if original_networks:
+            for network in original_networks:
+                if network.get('origin_country') == origin_country:
+                    original_network = network.get('name', 'Unknown')
+                    break
+
+        latest_networks = tmdb_obj.get('latest_networks', [])[-1:]  # Get the last network in the list
+
+        # get content rating from contentRatings (fra or usa)
+        content_ratings = tmdb_obj.get('content_ratings', {}).get('results', [])
+        content_rating = "Unknown"
+
+        for country in CONTENT_RATING_ORDER:
+            for content_rating_obj in content_ratings:
+                if content_rating_obj.get('iso_3166_1') == country.alpha2.upper():
+                    content_rating = content_rating_obj.get('rating', 'Unknown')
+                    break
+            if content_rating != "Unknown":
+                break
+
+        # alternative titles
+        alternative_titles = []
+        tmdb_alternative_titles = tmdb_obj.get('alternative_titles', {}).get('results', [])
+
+        for title in tmdb_alternative_titles:
+            if title.get('type') == '' and title.get('iso_3166_1') in [country.alpha2.upper() for country in CONTENT_RATING_ORDER]:
+                alternative_titles.append({"title": title.get('title')})
+
+        # get actors from credits
+        actors = []
+        tmdb_credits = tmdb_obj.get('credits', {}).get('cast', [])
+
+        for actor in tmdb_credits:
+            if actor.get('known_for_department') == 'Acting':
+                actors.append(Actor(
+                    name=actor.get('name'),
+                    character=actor.get('character'),
+                    image=TMDB_IMAGE_BASE_URL + actor.get('profile_path')
+                ))
+
+
+        # get images
+        tmdb_images = tmdb_obj.get('images', {})
+        images = []
+
+        # add poster images
+        if tmdb_images.get('posters'):
+            # get a poster with a filter
+            posters = sorted(tmdb_images.get('posters'), key=lambda x: x.get('vote_count', 0), reverse=True)
+
+            images.append(Image(
+                "Poster",
+                TMDB_IMAGE_BASE_URL + posters[0].get("file_path"),
+            ))
+
+        if tmdb_images.get('logos'):
+            # get a logo with a filter
+            logos = sorted(tmdb_images.get('logos'), key=lambda x: x.get('vote_count', 0), reverse=True)
+
+            images.append(Image(
+                "Clearlogo",
+                TMDB_IMAGE_BASE_URL + logos[0].get("file_path"),
+            ))
+
+        if tmdb_images.get('backdrops'):
+            # get a backdrop with a filter
+            backdrops = sorted(tmdb_images.get('backdrops'), key=lambda x: x.get('vote_count', 0), reverse=True)
+
+            images.append(Image(
+                "Banner",
+                TMDB_IMAGE_BASE_URL + backdrops[0].get("file_path"),
+            ))
+
+        # convert seasons
+        tmdb_seasons = tmdb_obj.get('seasons', [])
+        seasons = []
+
+        for tmdb_season in tmdb_seasons:
+            seasons.append(Season(
+                seasonNumber=tmdb_season.get('season_number', 0),
+                images=[Image(
+                    coverType='Poster',
+                    url=TMDB_IMAGE_BASE_URL + tmdb_season.get('poster_path')
+                )]
+            ))
+
+        # convert episodes
+        episodes = []
+
+        for season_group in tmdb_obj.get('tvdb_episode_group', []):
+            for episode in season_group.get('episodes', []):
+                episodes.append(Episode(
+                    episode.get('show_id'),
+                    episode.get('id'),
+                    season_group.get('order'),
+                    episode.get('order') + 1,
+                    len(episodes) + 1,  # absolute episode number
+                    None,
+                    None,
+                    episode.get('name'),
+                    episode.get('air_date'),
+                    datetime.strptime(episode.get('air_date', ''), '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ') if episode.get('air_date') else '',
+                    episode.get('runtime'),
+                    episode.get('overview', ''),
+                    TMDB_IMAGE_BASE_URL + episode.get('still_path', '')
+                ))
 
         return Show(
-            tmdb_obj.get('id') if USE_TMDB_FOR_SONARR else tmdb_obj.get('tvdb_id'),
-            tmdb_obj.get('name'),
-            tmdb_obj.get('overview'),
-            
+            tmdb_obj.get('id') if USE_TMDB_FOR_SONARR else tvdb_id or tmdb_obj.get('id'),
+            name,
+            overview,
+            tmdb_obj.get('name').replace(' ', '-').lower(),
+            tmdb_obj.get('origin_country')[0] if tmdb_obj.get('origin_country') else 'Unknown',
+            tmdb_obj.get('original_language'),
+            LANGS_FALLBACK[lang_fallback_index].pt1,
+            tmdb_obj.get('first_air_date'),
+            tmdb_obj.get('last_air_date'),
+            tvrage_id,
+            tvmaze_id,
+            tmdb_obj.get('id'),
+            imdb_id,
+            mal_ids,
+            anilist_ids,
+            last_change,
+            tmdb_obj.get('status', 'Unknown'),
+            episode_run_time if episode_run_time > -1 else None,
+            TimeOfDay( # todo get time of day from another source if available ?
+                hours=0,
+                minutes=0
+            ),
+            original_network,
+            latest_networks,
+            [genre.get('name') for genre in tmdb_obj.get('genres', [])],
+            content_rating,
+            Rating(count=tmdb_obj.get('vote_count'), value=str(tmdb_obj.get('vote_average'))),
+            alternative_titles,
+            actors,
+            images,
+            seasons,
+            episodes
         )

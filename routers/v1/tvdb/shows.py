@@ -6,7 +6,7 @@ from env import USE_TMDB_FOR_SONARR, LANGS_FALLBACK
 from models.skyhook.tvdb.show import Show, Episode
 from routers.cache import router_cache
 from utils import cache_or_exec, CACHE_TVDB_SHOW_PREFIX, CACHE_EPISODES_SUFFIX, CACHE_SERVER_RESPONSE_PREFIX, \
-    CACHE_TMDB_TV_PREFIX, CACHE_TMDB_EPISODE_GROUP_PREFIX
+    CACHE_TMDB_TV_PREFIX, CACHE_TMDB_EPISODE_GROUP_PREFIX, TMDB_TVDBD_EPISODE_ORDER_NAME
 
 showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 
@@ -19,7 +19,7 @@ async def get_shows(tvdb_id: int):
 
         cache_id = CACHE_TMDB_TV_PREFIX + str(tvdb_id)
         tv = tmdb_client.TV(tvdb_id)
-        tmdb_response = cache_or_exec(cache_id, lambda: tv.info(language=LANGS_FALLBACK[0].pt1, append_to_response="external_ids,content_ratings,credits,alternatives_titles,images,episode_groups"))
+        tmdb_response = cache_or_exec(cache_id, lambda: tv.info(append_to_response="external_ids,content_ratings,credits,alternatives_titles,images,episode_groups,translations", language=""))
 
         # get episode groups with tvdb order
         episode_groups = tmdb_response.get('episode_groups', {}).get('results', [])
@@ -27,7 +27,7 @@ async def get_shows(tvdb_id: int):
             episode_group = None
 
             for group in episode_groups:
-                if group.get('name') == 'TVDB Order':
+                if group.get('name') == TMDB_TVDBD_EPISODE_ORDER_NAME:
                     episode_group = group
                     break
 
@@ -37,7 +37,7 @@ async def get_shows(tvdb_id: int):
 
                 tmdb_response['tvdb_episode_group'] = episode_group
 
-
+        # todo: if no episode groups or no tvdb ordering, get episodes from tmdb orders
 
         return Show.from_tmdb_obj(tmdb_response)
     else:

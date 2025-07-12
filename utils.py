@@ -27,6 +27,7 @@ CACHE_VIDEOS_SUFFIX = '_videos'
 CACHE_SERVER_RESPONSE_PREFIX = 'cache_server_response_'
 
 TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original'
+TMDB_TVDBD_EPISODE_ORDER_NAME = 'TVDB Order'
 
 def exec_and_wait(func: callable, seconds: int = 1) -> any:
     """
