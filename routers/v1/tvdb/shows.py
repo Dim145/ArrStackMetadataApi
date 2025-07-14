@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 from fastapi import APIRouter
 
@@ -6,14 +6,15 @@ from env import USE_TMDB_FOR_SONARR, LANGS_FALLBACK
 from models.skyhook.tvdb.show import Show, Episode
 from routers.cache import router_cache
 from utils import cache_or_exec, CACHE_TVDB_SHOW_PREFIX, CACHE_EPISODES_SUFFIX, CACHE_SERVER_RESPONSE_PREFIX, \
-    CACHE_TMDB_TV_PREFIX, CACHE_TMDB_EPISODE_GROUP_PREFIX, TMDB_TVDBD_EPISODE_ORDER_NAME
+    CACHE_TMDB_TV_PREFIX, CACHE_TMDB_EPISODE_GROUP_PREFIX, TMDB_TVDBD_EPISODE_ORDER_NAME, CACHE_SEASON_SUFFIX, \
+    TMDB_IMAGE_BASE_URL
 
 showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 
 @showsRouter.get("/{tvdb_id}")
 @router_cache(CACHE_SERVER_RESPONSE_PREFIX + 'tvdb_shows_{tvdb_id}', expire=timedelta(hours=1))
-async def get_shows(tvdb_id: int):
-    if USE_TMDB_FOR_SONARR:
+async def get_shows(tvdb_id: int, adult: bool = False):
+    if USE_TMDB_FOR_SONARR or adult:
         import tmdbsimple as tmdb_client
 
         cache_id = CACHE_TMDB_TV_PREFIX + str(tvdb_id)
@@ -36,9 +37,41 @@ async def get_shows(tvdb_id: int):
 
                 tmdb_response['tvdb_episode_group'] = episode_group
 
-        # todo: if no episode groups or no tvdb ordering, get episodes from tmdb orders
+        show = Show.from_tmdb_obj(tmdb_response)
 
-        return Show.from_tmdb_obj(tmdb_response)
+        # todo: if no episode groups or no tvdb ordering, get episodes from tmdb orders
+        if len(show.episodes) == 0:
+            episodes = []
+
+            for season in tmdb_response.get('seasons', []):
+                season_number = season.get('season_number')
+                cache_id = CACHE_TMDB_TV_PREFIX + str(tvdb_id) + CACHE_SEASON_SUFFIX + f"_{season_number}"
+                s = tmdb_client.TV_Seasons(tvdb_id, season_number)
+                season_response = cache_or_exec(cache_id, lambda: s.info(append_to_response="images,translations", language=""))
+
+                for ep in season_response.get('episodes', []):
+                    episode = Episode(
+                        ep.get('show_id'),
+                        ep.get('id'),
+                        season_number,
+                        ep.get('episode_number'),
+                        len(episodes) + 1,  # absolute episode number
+                        None,
+                        None,
+                        ep.get('name'),
+                        ep.get('air_date'),
+                        datetime.strptime(ep.get('air_date', ''), '%Y-%m-%d').strftime(
+                            '%Y-%m-%dT%H:%M:%SZ') if ep.get('air_date') else '',
+                        ep.get('runtime'),
+                        ep.get('overview', ''),
+                        TMDB_IMAGE_BASE_URL + ep.get('still_path', '')
+                    )
+                    episode.season_number = season_number
+                    episodes.append(episode)
+
+            show.episodes = episodes
+
+        return show
     else:
         from routers.v1.tvdb import TVDB_API
 

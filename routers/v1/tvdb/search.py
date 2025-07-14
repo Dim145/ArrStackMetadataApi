@@ -18,7 +18,7 @@ searchRouter = APIRouter(prefix="/search/en") # always use en lang at this time
 async def search(term: str):
     results = []
 
-    if USE_TMDB_FOR_SONARR:
+    if USE_TMDB_FOR_SONARR or INCLUDE_ADULT_CONTENT:
         s = Search()
 
         cache_id = CACHE_TMDB_SEARCH_TV_PREFIX + term
@@ -29,7 +29,7 @@ async def search(term: str):
             set_attrs_from_dict(s, res)
 
         # tmdb  doen't return all infos. Need to fetch each show separately
-        tasks = [shows.get_shows(tv.get("id")) for tv in res.results]
+        tasks = [shows.get_shows(tv.get("id"), tv.get("adult")) for tv in res.results]
         responses = await asyncio.gather(*tasks)
 
         results.extend(responses)

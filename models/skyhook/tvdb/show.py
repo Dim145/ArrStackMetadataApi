@@ -528,7 +528,7 @@ class Show:
                 actors.append(Actor(
                     name=actor.get('name'),
                     character=actor.get('character'),
-                    image=TMDB_IMAGE_BASE_URL + actor.get('profile_path')
+                    image=TMDB_IMAGE_BASE_URL + actor.get('profile_path') if actor.get('profile_path') else None
                 ))
 
 

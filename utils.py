@@ -23,6 +23,7 @@ CACHE_RECOMMENDATIONS_SUFFIX = '_recommendations'
 CACHE_CREDITS_SUFFIX = '_credits'
 CACHE_ALTERNATIVE_TITLES_SUFFIX = '_alternative_titles'
 CACHE_VIDEOS_SUFFIX = '_videos'
+CACHE_SEASON_SUFFIX = '_season'
 
 CACHE_SERVER_RESPONSE_PREFIX = 'cache_server_response_'
 
