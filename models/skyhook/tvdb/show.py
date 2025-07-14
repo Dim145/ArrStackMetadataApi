@@ -484,7 +484,8 @@ class Show:
                     last_change = change_date
 
         # calculate average episode run time
-        episode_run_time = mean(tmdb_obj.get('episode_run_time', [-1]))
+        tmdb_episode_runtime = tmdb_obj.get('episode_run_time', [])
+        episode_run_time = mean(tmdb_episode_runtime) if tmdb_episode_runtime and len(tmdb_episode_runtime) > 0 else -1
 
         # networks infos
         origin_country = tmdb_obj.get('origin_country', ['Unknown'])[0]
