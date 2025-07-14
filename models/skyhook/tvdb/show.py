@@ -488,7 +488,8 @@ class Show:
         episode_run_time = mean(tmdb_episode_runtime) if tmdb_episode_runtime and len(tmdb_episode_runtime) > 0 else -1
 
         # networks infos
-        origin_country = tmdb_obj.get('origin_country', ['Unknown'])[0]
+        tmdb_origin_country =  tmdb_obj.get('origin_country', ['Unknown'])
+        origin_country = tmdb_origin_country[0] if len(tmdb_origin_country) > 0 else 'Unknown'
         original_networks = tmdb_obj.get('networks', [])
         original_network = 'Unknown'
 
