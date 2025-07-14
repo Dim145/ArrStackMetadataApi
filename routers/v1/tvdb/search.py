@@ -29,7 +29,7 @@ async def search(term: str):
             set_attrs_from_dict(s, res)
 
         # tmdb  doen't return all infos. Need to fetch each show separately
-        tasks = [shows.get_shows(tv.get("id"), tv.get("adult")) for tv in res.results]
+        tasks = [shows.get_shows(tv.get("id"), tv.get("adult")) for tv in res.get('results, []')]
         responses = await asyncio.gather(*tasks)
 
         results.extend(responses)
