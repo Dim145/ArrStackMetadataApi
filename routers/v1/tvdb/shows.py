@@ -39,7 +39,6 @@ async def get_shows(tvdb_id: int, adult: bool = False):
 
         show = Show.from_tmdb_obj(tmdb_response)
 
-        # todo: if no episode groups or no tvdb ordering, get episodes from tmdb orders
         if len(show.episodes) == 0:
             episodes = []
 

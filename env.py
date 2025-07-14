@@ -62,3 +62,6 @@ for server in METADATA_SERVER_FOR or []:
         case _:
             # METADATA_SERVER_FOR value not supported at this time
             raise ValueError(server + " is not supported at this time. Supported values are 'sonarr', 'radarr', 'lidarr'")
+
+if (USE_TMDB_FOR_SONARR or INCLUDE_ADULT_CONTENT) and not TMDB_API_KEY:
+    raise ValueError("TMDB_API_KEY environment variable is not set. It is required when USE_TMDB_FOR_SONARR or INCLUDE_ADULT_CONTENT is enabled.")
