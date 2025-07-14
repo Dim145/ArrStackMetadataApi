@@ -595,9 +595,9 @@ class Show:
                     None,
                     episode.get('name'),
                     episode.get('air_date'),
-                    datetime.strptime(episode.get('air_date', ''), '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ') if episode.get('air_date') else '',
+                    datetime.strptime(episode.get('air_date'), '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ') if episode.get('air_date') else None,
                     episode.get('runtime'),
-                    episode.get('overview', ''),
+                    episode.get('overview'),
                     TMDB_IMAGE_BASE_URL + episode.get('still_path', '')
                 ))
 

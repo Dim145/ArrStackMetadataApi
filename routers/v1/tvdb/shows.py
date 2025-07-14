@@ -60,10 +60,10 @@ async def get_shows(tvdb_id: int, adult: bool = False):
                         ep.get('name'),
                         ep.get('air_date'),
                         datetime.strptime(ep.get('air_date', ''), '%Y-%m-%d').strftime(
-                            '%Y-%m-%dT%H:%M:%SZ') if ep.get('air_date') else '',
+                            '%Y-%m-%dT%H:%M:%SZ') if ep.get('air_date') else None,
                         ep.get('runtime'),
-                        ep.get('overview', ''),
-                        TMDB_IMAGE_BASE_URL + ep.get('still_path', '') if ep.get('still_path') else None,
+                        ep.get('overview'),
+                        TMDB_IMAGE_BASE_URL + ep.get('still_path') if ep.get('still_path') else None,
                     )
                     episode.season_number = season_number
                     episodes.append(episode)
