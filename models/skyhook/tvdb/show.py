@@ -574,7 +574,7 @@ class Show:
                 seasonNumber=tmdb_season.get('season_number', 0),
                 images=[Image(
                     coverType='Poster',
-                    url=TMDB_IMAGE_BASE_URL + tmdb_season.get('poster_path')
+                    url=TMDB_IMAGE_BASE_URL + tmdb_season.get('poster_path') if tmdb_season.get('poster_path') else None
                 )]
             ))
 
