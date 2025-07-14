@@ -499,7 +499,8 @@ class Show:
                     original_network = network.get('name', 'Unknown')
                     break
 
-        latest_networks = tmdb_obj.get('latest_networks', [])[-1:]  # Get the last network in the list
+        tmdb_latest_networks = tmdb_obj.get('latest_networks', [])
+        latest_networks = tmdb_latest_networks[-1] if tmdb_latest_networks and len(tmdb_latest_networks) > 1 else original_network
 
         # get content rating from contentRatings (fra or usa)
         content_ratings = tmdb_obj.get('content_ratings', {}).get('results', [])
