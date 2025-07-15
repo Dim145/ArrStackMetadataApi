@@ -59,7 +59,7 @@ async def get_shows(tvdb_id: int, adult: bool = False):
                         None,
                         ep.get('name'),
                         ep.get('air_date'),
-                        datetime.strptime(ep.get('air_date', ''), '%Y-%m-%d').strftime(
+                        datetime.strptime(ep.get('air_date'), '%Y-%m-%d').strftime(
                             '%Y-%m-%dT%H:%M:%SZ') if ep.get('air_date') else None,
                         ep.get('runtime'),
                         ep.get('overview'),
