@@ -67,6 +67,12 @@ Le projet est prévus pour fonctionner dans un container docker, il est donc né
 
 Redis est requis pour le fonctionnement de ce projet, si vous n'avez pas de redis d'installé, vous pouvez le faire via docker-compose.
 
+**Attention**, la variable d'environment `USE_TMDB_FOR_SONARR` désactivera totalement tvdb pour sonarr.
+Si vous ajoutez ce proxy à une instance existante, il est conseillé de ne pas l'activé, car les id de tvdb enregistré dans sonarr ne vont pas correspondre à ceux de tmdb.
+
+Pour utiliser tmdb en plus de tvdb, il faut activer la variable d'environment `INCLUDE_ADULT_CONTENT`. 
+Tmdb sera utilisé pour la recherche et pour les informations de séries non présentes chez tvdb (séries adultes principalement).
+
 ```yaml
 services:
   metadata-server:
@@ -81,6 +87,7 @@ services:
       REDIS_HOST: redis
       LANGS_FALLBACK: fra,eng
       INCLUDE_ADULT_CONTENT: false
+      USE_TMDB_FOR_SONARR: false # active tmdb. ne pas activé pour une instance existante de sonarr. ref au Readme.md
     networks:
       - internal
 

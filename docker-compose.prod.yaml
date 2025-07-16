@@ -12,6 +12,7 @@ services:
       REDIS_HOST: redis
       LANGS_FALLBACK: fra,eng
       INCLUDE_ADULT_CONTENT: false
+      USE_TMDB_FOR_SONARR: false # active tmdb. ne pas activé pour une instance existante de sonarr. ref au Readme.md
     networks:
       - internal
 
