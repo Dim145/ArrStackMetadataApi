@@ -19,7 +19,7 @@ async def get_shows(tvdb_id: int, adult: bool = False, ignore_not_found: bool = 
 
     tvdb_id_str = str(tvdb_id)
 
-    if not use_tmdb and len(tvdb_id_str) > 5 and tvdb_id_str.startswith(TMDB_ID_PREFIX):
+    if not use_tmdb and tvdb_id_str.startswith(TMDB_ID_PREFIX):
         use_tmdb = True
 
     if use_tmdb:
