@@ -20,6 +20,7 @@ CACHE_IMAGES_SUFFIX = '_images'
 CACHE_KEYWORDS_SUFFIX = '_keywords'
 CACHE_TRANSLATIONS_SUFFIX = '_translations'
 CACHE_RECOMMENDATIONS_SUFFIX = '_recommendations'
+CACHE_EXTERNAL_IDS_SUFFIX = '_external_ids'
 CACHE_CREDITS_SUFFIX = '_credits'
 CACHE_ALTERNATIVE_TITLES_SUFFIX = '_alternative_titles'
 CACHE_VIDEOS_SUFFIX = '_videos'
@@ -29,6 +30,8 @@ CACHE_SERVER_RESPONSE_PREFIX = 'cache_server_response_'
 
 TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original'
 TMDB_TVDBD_EPISODE_ORDER_NAME = 'TVDB Order'
+
+TMDB_ID_PREFIX = '-989'
 
 def exec_and_wait(func: callable, seconds: int = 1) -> any:
     """

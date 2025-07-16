@@ -339,7 +339,7 @@ class Show:
                 if art_obj.get('type') != cover_type.get('id'):
                     continue
 
-                if cover_type.get('includeText') is True and (not map(lambda x: x.pt2t, LANGS_FALLBACK).__contains__(art_obj.get('language'))):
+                if cover_type.get('includeText') is True and (not art_obj.get('language') in map(lambda x: x.pt2t, LANGS_FALLBACK)):
                     continue
 
                 if cover_type.get('includeText') is None or cover_type.get('includeText') == art_obj.get('includesText'):
