@@ -103,6 +103,7 @@ class Episode:
     runtime: int
     overview: str
     image: str
+    finaleType: str
 
     @staticmethod
     def from_dict(obj: Any) -> 'Episode':
@@ -119,7 +120,8 @@ class Episode:
         _runtime = int(obj.get("runtime"))
         _overview = str(obj.get("overview"))
         _image = str(obj.get("image"))
-        return Episode(_tvdbShowId, _tvdbId, _seasonNumber, _episodeNumber, _absoluteEpisodeNumber, _airedBeforeSeasonNumber, _airedBeforeEpisodeNumber, _title, _airDate, _airDateUtc, _runtime, _overview, _image)
+        _finaleType = str(obj.get("finaleType", ''))
+        return Episode(_tvdbShowId, _tvdbId, _seasonNumber, _episodeNumber, _absoluteEpisodeNumber, _airedBeforeSeasonNumber, _airedBeforeEpisodeNumber, _title, _airDate, _airDateUtc, _runtime, _overview, _image, _finaleType)
 
     @staticmethod
     def from_tvdb_obj(tvdb_obj: dict) -> 'Episode':
@@ -147,7 +149,8 @@ class Episode:
             datetime.strptime(tvdb_obj.get('aired', ''), '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ') if tvdb_obj.get('aired') else '',
             tvdb_obj.get('runtime', 0),
             tvdb_obj.get('overview', ''),
-            image_link
+            image_link,
+            tvdb_obj.get('finaleType')
         )
 
 @dataclass

@@ -72,6 +72,7 @@ async def get_shows(tvdb_id: int, adult: bool = False, ignore_not_found: bool = 
                         ep.get('runtime'),
                         ep.get('overview'),
                         TMDB_IMAGE_BASE_URL + ep.get('still_path') if ep.get('still_path') else None,
+                        "season" if ep.get('episode_type') == "finale" else None,
                     )
                     episode.season_number = season_number
                     episodes.append(episode)
