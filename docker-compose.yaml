@@ -14,6 +14,8 @@ services:
       LANGS_FALLBACK: fra,eng
       INCLUDE_ADULT_CONTENT: true
       USE_TMDB_FOR_SONARR: false # active tmdb. ne pas activé pour une instance existante de sonarr. ref au Readme.md
+    volumes:
+      - ./data:/data
 
 
   redis:

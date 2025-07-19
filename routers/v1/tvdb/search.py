@@ -8,7 +8,8 @@ from models.skyhook.tvdb.show import Show
 from routers.cache import router_cache
 from routers.v1.tvdb import shows
 from utils import CACHE_TVDB_SEARCH_PREFIX, cache_or_exec, CACHE_TVDB_SHOW_PREFIX, CACHE_SERVER_RESPONSE_PREFIX, \
-    CACHE_TMDB_SEARCH_TV_PREFIX, set_attrs_from_dict, TMDB_ID_PREFIX, CACHE_TMDB_TV_PREFIX, CACHE_EXTERNAL_IDS_SUFFIX
+    CACHE_TMDB_SEARCH_TV_PREFIX, set_attrs_from_dict, CACHE_TMDB_TV_PREFIX, CACHE_EXTERNAL_IDS_SUFFIX, \
+    add_tmdb_only_ids_to_pc, save_tmdb_ids_to_file
 
 searchRouter = APIRouter(prefix="/search/en") # always use en lang at this time
 
@@ -35,7 +36,11 @@ async def search(term: str):
             tv_id = tv.get('id')
 
             if USE_TMDB_FOR_SONARR or tv.get("adult", False):
-                tv_id = int(TMDB_ID_PREFIX + str(tv.get('id')))
+                tv_id = tv.get('id')
+
+                # save ids not usefull for tmdb as main data source
+                if not USE_TMDB_FOR_SONARR:
+                    add_tmdb_only_ids_to_pc(tv_id)
 
                 tasks.append(
                     shows.get_shows(tv_id, tv.get("adult", False))
@@ -56,10 +61,13 @@ async def search(term: str):
                 )
             else:
                 # If no TVDB ID, we assume it's a TMDB ID
-                tv_id = int(TMDB_ID_PREFIX + str(external_id.get('id')))
+                tv_id = external_id.get('id')
+
+                if not USE_TMDB_FOR_SONARR:
+                    add_tmdb_only_ids_to_pc(tv_id)
 
                 tasks.append(
-                    shows.get_shows(tv_id)
+                    shows.get_shows(tv_id, True)
                 )
 
         # tmdb  doesn't return all infos. Need to fetch each show separately
@@ -93,6 +101,8 @@ async def search(term: str):
                     continue
                 else:
                     raise e
+
+    await save_tmdb_ids_to_file()
 
     return results
 

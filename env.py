@@ -15,6 +15,8 @@ INCLUDE_ADULT_CONTENT = os.getenv("INCLUDE_ADULT_CONTENT", "false").lower() in (
 
 USE_TMDB_FOR_SONARR = os.getenv("USE_TMDB_FOR_SONARR", "false").lower() in ("true", "1", "yes")
 
+ROOT_DATA_PATH = os.getenv("ROOT_DATA_PATH", "data")
+
 REDIS_CACHE = redis.Redis(
     host=os.getenv("REDIS_HOST", "localhost"),
     port=int(os.getenv("REDIS_PORT", 6379)),

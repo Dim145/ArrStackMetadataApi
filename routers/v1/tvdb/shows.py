@@ -7,8 +7,8 @@ from env import USE_TMDB_FOR_SONARR, LANGS_FALLBACK
 from models.skyhook.tvdb.show import Show, Episode
 from routers.cache import router_cache
 from utils import cache_or_exec, CACHE_TVDB_SHOW_PREFIX, CACHE_EPISODES_SUFFIX, CACHE_SERVER_RESPONSE_PREFIX, \
-    CACHE_TMDB_TV_PREFIX, CACHE_TMDB_EPISODE_GROUP_PREFIX, TMDB_TVDBD_EPISODE_ORDER_NAME, CACHE_SEASON_SUFFIX, \
-    TMDB_IMAGE_BASE_URL, TMDB_ID_PREFIX
+    CACHE_TMDB_TV_PREFIX, CACHE_TMDB_EPISODE_GROUP_PREFIX, TMDB_TVDB_EPISODE_ORDER_NAME, CACHE_SEASON_SUFFIX, \
+    TMDB_IMAGE_BASE_URL, get_tmdb_only_ids_from_pc
 
 showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 
@@ -17,18 +17,13 @@ showsRouter = APIRouter(prefix="/shows/en") # always use en lang at this time
 async def get_shows(tvdb_id: int, adult: bool = False, ignore_not_found: bool = False):
     use_tmdb = USE_TMDB_FOR_SONARR or adult
 
-    tvdb_id_str = str(tvdb_id)
-
-    if not use_tmdb and tvdb_id_str.startswith(TMDB_ID_PREFIX):
+    if not use_tmdb and str(tvdb_id) in get_tmdb_only_ids_from_pc():
         use_tmdb = True
 
     if use_tmdb:
         import tmdbsimple as tmdb_client
 
         parsed_id = tvdb_id
-
-        if tvdb_id_str.startswith(TMDB_ID_PREFIX):
-            parsed_id = int(tvdb_id_str[len(TMDB_ID_PREFIX):])
 
         cache_id = CACHE_TMDB_TV_PREFIX + str(parsed_id)
         tv = tmdb_client.TV(parsed_id)
@@ -40,7 +35,7 @@ async def get_shows(tvdb_id: int, adult: bool = False, ignore_not_found: bool = 
             episode_group = None
 
             for group in episode_groups:
-                if group.get('name') == TMDB_TVDBD_EPISODE_ORDER_NAME:
+                if group.get('name') == TMDB_TVDB_EPISODE_ORDER_NAME:
                     episode_group = group
                     break
 
