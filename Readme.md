@@ -14,9 +14,11 @@ Les fonctionnalités implémentées sont les suivantes :
 - [x] Sonarr:
   - [x] recherche de séries
   - [x] récupération des informations d'une série
+  - [x] utilisation de tmdb pour les séries
+  - [x] activation optionnelle du mode adulte (tmdb)
   - [ ] recherche de series directement depuis une source de métadonnées
     - [x] tvdb
-    - [ ] tmdb
+    - [x] tmdb
     - [ ] anilist
     - [ ] mal
     - [ ] imdb
