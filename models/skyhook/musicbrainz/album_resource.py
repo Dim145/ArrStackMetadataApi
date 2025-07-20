@@ -31,6 +31,9 @@ class AlbumResource:
     @staticmethod
     def from_musicbrainz(obj: dict) -> 'AlbumResource':
 
+        artists = obj.get('artist-credit', [])
+        tags = obj.get('tag-list', [])
+
         return AlbumResource(
             Id=obj.get('id'),
             ReleaseDate=obj.get('first-release-date'),
@@ -40,8 +43,10 @@ class AlbumResource:
             Type=obj.get('primary-type'),
             Rating=RatingResource.from_musicbrainz(obj.get('rating')) if obj.get('rating') else None,
             Links=[LinkResource.from_musicbrainz(link) for link in obj.get('url-relation-list', [])],
-            Artists=[ArtistResource.from_musicbrainz(artist) for artist in obj.get('artist-relation-list', [])],
+            Artists=[ArtistResource.from_musicbrainz(artist) for artist in artists],
             Releases=[ReleaseResource.from_musicbrainz(release) for release in obj.get('release-list', [])],
             Images=[ImageResource.from_musicbrainz(image) for image in obj.get('images', [])],
-            Genres=obj.get('genre-list', []),
+            Genres= [tag.get('name') for tag in tags],
+            ArtistId=artists[0].get('artist', {}).get('id') if len(artists) > 0 else None,
+
         )
