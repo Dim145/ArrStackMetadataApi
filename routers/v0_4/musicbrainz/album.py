@@ -41,6 +41,4 @@ async def get_albums(album_id: str):
         release_group["release-list"][i] = release_data.get('release')
 
 
-    open(f"/data/debug_album_{album_id}.json", "w").write(json.dumps(release_group, indent=2))
-
     return AlbumResource.from_musicbrainz(release_group)
