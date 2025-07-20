@@ -43,7 +43,7 @@ class AlbumResource:
             Type=obj.get('primary-type'),
             Rating=RatingResource.from_musicbrainz(obj.get('rating')) if obj.get('rating') else None,
             Links=[LinkResource.from_musicbrainz(link) for link in obj.get('url-relation-list', [])],
-            Artists=[ArtistResource.from_musicbrainz(artist) for artist in artists],
+            Artists=[ArtistResource.from_musicbrainz(artist) for artist in artists if isinstance(artist, dict)],
             Releases=[ReleaseResource.from_musicbrainz(release) for release in obj.get('release-list', [])],
             Images=[ImageResource.from_musicbrainz(image) for image in obj.get('images', [])],
             Genres= [tag.get('name') for tag in tags],

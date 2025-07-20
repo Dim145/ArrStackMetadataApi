@@ -20,12 +20,17 @@ async def get_albums(album_id: str):
         "artist-credits", "annotation", "aliases", "tags"
     ] + RELATION_INCLUDES), 1))
 
-    cache_id = cache_id + CACHE_IMAGES_SUFFIX
-    images = cache_or_exec(cache_id, lambda: musicbrainzngs.get_release_group_image_list(album_id))
-
     release_group = data.get('release-group')
 
-    release_group['images'] = images.get('images')
+    try:
+        cache_id = cache_id + CACHE_IMAGES_SUFFIX
+        images = cache_or_exec(cache_id, lambda: musicbrainzngs.get_release_group_image_list(album_id))
+
+        release_group['images'] = images.get('images')
+    except musicbrainzngs.ResponseError as e:
+        if "404" in e.cause:
+            raise e
+
 
     # because of rate limiting, we need to fetch releases separately
     for i in range(release_group['release-count']):
