@@ -8,14 +8,14 @@ from env import MUSICBRAINZ_API_CONTACT, MUSICBRAINZ_API_VERSION, MUSICBRAINZ_AP
 from models.skyhook.musicbrainz.album_resource import AlbumResource
 from utils import CACHE_MUSICBRAINZ_ALBUM_PREFIX, cache_or_exec, CACHE_IMAGES_SUFFIX, exec_and_wait
 
-albumsRouter = APIRouter(prefix="/albums")
+albumsRouter = APIRouter(prefix="/album")
 
 @albumsRouter.get("/{album_id}")
 async def get_albums(album_id: str):
 
     cache_id = CACHE_MUSICBRAINZ_ALBUM_PREFIX + album_id
     data = cache_or_exec(cache_id, lambda: exec_and_wait(lambda: musicbrainzngs.get_release_group_by_id(album_id, includes=[
-        "artists", "releases", "discids", "media",
+        "artists", "releases", "discids", "media", "ratings",
         "artist-credits", "annotation", "aliases", "tags"
     ] + RELATION_INCLUDES), 1))
 

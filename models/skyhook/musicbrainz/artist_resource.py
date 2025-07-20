@@ -31,9 +31,17 @@ class ArtistResource:
 
         artist_dict = obj.get('artist', {})
 
+        tags = artist_dict.get('tag-list', [])
+
         return ArtistResource(
-            Id=obj.get('target'),
+            Id=artist_dict.get("id", obj.get('target')),
             ArtistName=artist_dict.get('name'),
             Type=artist_dict.get('type'),
             Disambiguation=artist_dict.get('disambiguation'),
+            Rating=RatingResource.from_musicbrainz(artist_dict.get('rating')) if artist_dict.get('rating') else None,
+            Genres=[tag.get('name') for tag in tags],
+            Links=[LinkResource.from_musicbrainz(link) for link in artist_dict.get('url-relation-list', [])],
+            ArtistAliases=[alias.get('alias') for alias in artist_dict.get('alias-list', [])],
+            Albums=[],
+
         )
