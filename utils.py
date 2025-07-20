@@ -21,6 +21,7 @@ CACHE_TMDB_EPISODE_GROUP_PREFIX = 'tmdb_episode_group_'
 
 CACHE_MUSICBRAINZ_ALBUM_PREFIX = 'musicbrainz_album_'
 CACHE_MUSICBRAINZ_ARTIST_PREFIX = 'musicbrainz_artist_'
+CACHE_MUSICBRAINZ_RELEASE_PREFIX = 'musicbrainz_release_'
 
 CACHE_IMAGES_SUFFIX = '_images'
 CACHE_KEYWORDS_SUFFIX = '_keywords'
