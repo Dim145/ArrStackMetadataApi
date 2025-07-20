@@ -12,8 +12,6 @@ albumsRouter = APIRouter(prefix="/albums")
 
 @albumsRouter.get("/{album_id}")
 async def get_albums(album_id: str):
-    musicbrainzngs.set_hostname(MUSICBRAINZ_API_DOMAIN, use_https=True)
-    musicbrainzngs.set_useragent(MUSICBRAINZ_API_APP_NAME, MUSICBRAINZ_API_VERSION, MUSICBRAINZ_API_CONTACT)
 
     cache_id = CACHE_MUSICBRAINZ_ALBUM_PREFIX + album_id
     data = cache_or_exec(cache_id, lambda: exec_and_wait(lambda: musicbrainzngs.get_release_group_by_id(album_id, includes=[
