@@ -32,6 +32,7 @@ class ArtistResource:
         artist_dict = obj.get('artist', {})
 
         tags = artist_dict.get('tag-list', [])
+        life_span = artist_dict.get('life-span')
 
         return ArtistResource(
             Id=artist_dict.get("id", obj.get('target')),
@@ -43,6 +44,6 @@ class ArtistResource:
             Links=[LinkResource.from_musicbrainz(link) for link in artist_dict.get('url-relation-list', [])],
             ArtistAliases=[alias.get('alias') for alias in artist_dict.get('alias-list', [])],
             Albums=[],
-            Status=artist_dict.get('status'),
+            Status="ended" if life_span and life_span.get('ended') else None,
 
         )
