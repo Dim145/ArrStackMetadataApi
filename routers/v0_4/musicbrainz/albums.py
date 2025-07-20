@@ -4,6 +4,7 @@ import musicbrainzngs
 from fastapi import APIRouter
 from musicbrainzngs import RELATION_INCLUDES
 
+from env import MUSICBRAINZ_API_CONTACT, MUSICBRAINZ_API_VERSION, MUSICBRAINZ_API_APP_NAME, MUSICBRAINZ_API_DOMAIN
 from models.skyhook.musicbrainz.album_resource import AlbumResource
 from utils import CACHE_MUSICBRAINZ_ALBUM_PREFIX, cache_or_exec, CACHE_IMAGES_SUFFIX, exec_and_wait
 
@@ -11,8 +12,8 @@ albumsRouter = APIRouter(prefix="/albums")
 
 @albumsRouter.get("/{album_id}")
 async def get_albums(album_id: str):
-    musicbrainzngs.set_hostname("beta.musicbrainz.org", use_https=True)
-    musicbrainzngs.set_useragent("Application lidarrMetadataProxyServerForDim", "0.4.0","dimitri.bleach@gmail.com")
+    musicbrainzngs.set_hostname(MUSICBRAINZ_API_DOMAIN, use_https=True)
+    musicbrainzngs.set_useragent(MUSICBRAINZ_API_APP_NAME, MUSICBRAINZ_API_VERSION, MUSICBRAINZ_API_CONTACT)
 
     cache_id = CACHE_MUSICBRAINZ_ALBUM_PREFIX + album_id
     data = cache_or_exec(cache_id, lambda: exec_and_wait(lambda: musicbrainzngs.get_release_group_by_id(album_id, includes=[
