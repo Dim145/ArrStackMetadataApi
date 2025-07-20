@@ -23,6 +23,4 @@ async def get_artist(artist_id: str):
      "media", "isrcs", "aliases", "annotation", "ratings"
     ] + RELATION_INCLUDES), seconds=1))
 
-    open("/data/musicbrainz-artist-by-id.json", "w").write(json.dumps(data, indent=2))
-
     return ArtistResource.from_musicbrainz(data)

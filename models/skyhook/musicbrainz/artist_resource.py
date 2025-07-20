@@ -43,5 +43,6 @@ class ArtistResource:
             Links=[LinkResource.from_musicbrainz(link) for link in artist_dict.get('url-relation-list', [])],
             ArtistAliases=[alias.get('alias') for alias in artist_dict.get('alias-list', [])],
             Albums=[],
+            Status=artist_dict.get('status'),
 
         )

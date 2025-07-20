@@ -26,7 +26,4 @@ async def get_albums(album_id: str):
 
     release_group['images'] = images.get('images')
 
-    print(json.dumps(data, indent=2))
-    open("/data/debug.json", "w").write(json.dumps(data, indent=2))
-
     return AlbumResource.from_musicbrainz(release_group)
